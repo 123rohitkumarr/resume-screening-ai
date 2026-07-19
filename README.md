@@ -1,177 +1,160 @@
-<h1 align="center">🤖 AI Resume Screening & Candidate Feedback System</h1>
+# AI Resume Screening & Candidate Feedback System
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3.11+-blue.svg" alt="Python Version">
-  <img src="https://img.shields.io/badge/FastAPI-0.100+-green.svg" alt="FastAPI">
-  <img src="https://img.shields.io/badge/Streamlit-1.25+-red.svg" alt="Streamlit">
-  <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License">
-</p>
+This is an end-to-end system I built to make resume screening smarter and less biased. Instead of just keyword-matching a resume against a job description, it actually looks at semantic meaning, skill overlap, experience, and education — and then explains *why* it gave the score it did, so recruiters aren't just trusting a black box.
 
-## 🌟 Overview
-A production-ready, end-to-end AI system designed to streamline and revolutionize the recruitment process. Utilizing modern Machine Learning, Deep Learning, NLP, RAG (Retrieval-Augmented Generation), and Explainable AI, this application provides unbiased, multi-dimensional resume analysis, job-role classification, and personalized candidate feedback.
+It combines a few different pieces of ML/NLP tech: a trained XGBoost classifier for predicting job roles, sentence embeddings + FAISS for semantic search, fuzzy skill matching, and an LLM-powered chatbot that can talk through a candidate's resume and suggest how they could close skill gaps.
 
-## ✨ Key Features
-- **Resume Parsing:** Robust text extraction from multiple formats including PDF, DOCX, and TXT files.
-- **Multi-Dimensional Compatibility Scoring:** Evaluates candidate fit across semantic context, explicit skills, experience duration, and educational background.
-- **XGBoost Job-Role Classification:** Accurately categorizes resumes into appropriate job families or roles based on learned historical patterns.
-- **Advanced Vector Search:** Leverages Sentence-Transformer embeddings (`all-MiniLM-L6-v2`) and FAISS for lightning-fast semantic resume matching.
-- **Explainable AI (XAI):** Provides transparent score attribution so recruiters know exactly *why* a candidate received a specific score.
-- **RAG-Powered Chatbot:** Interactive career coaching assistant that references the candidate's actual resume to offer personalized advice.
-- **AI Feedback Generator:** Automatically crafts constructive rejection/acceptance feedback, along with targeted learning resources for skill gaps.
-- **Multi-LLM Support:** Seamlessly swap between Gemini, Ollama (local), and OpenAI models for generative tasks.
-- **Real-Time Analytics Dashboard:** Streamlit-powered interface for interactive exploration, filtering, and reporting.
+## What it does
 
-## 🏗️ Architecture
-The system employs a decoupled microservices-inspired architecture, separating the heavy ML processing and APIs from the user interface.
+- **Parses resumes** from PDF, DOCX, or plain text — no manual reformatting needed.
+- **Scores candidates on four dimensions**: semantic fit, skill overlap, experience match, and education level — not just a single opaque number.
+- **Predicts the most likely job role** for a resume using a trained XGBoost model.
+- **Finds semantically similar resumes/roles fast** using Sentence-Transformer embeddings and a FAISS vector index.
+- **Explains its scoring** — every score comes with a breakdown of what contributed to it, so it's not a black box.
+- **Runs a RAG-based chatbot** that references the actual resume to give career coaching advice.
+- **Auto-generates feedback** for candidates (why they were or weren't a good fit, plus resources to close gaps).
+- **Works with multiple LLM providers** — Gemini, OpenAI, or a local Ollama instance, your choice.
+- **Has a live dashboard** built in Streamlit for recruiters to explore results interactively.
 
-```text
-+---------------------+         REST API          +-----------------------+
-|  Streamlit Frontend | <=======================> |    FastAPI Backend    |
-|  (Recruiter/Admin)  |                           |  (Core Logic & APIs)  |
-+---------------------+                           +-----------+-----------+
-                                                              |
-          +-------------------------+-------------------------+-------------------------+
-          |                         |                         |                         |
-          v                         v                         v                         v
-+-------------------+     +-------------------+     +-------------------+     +-------------------+
-| XGBoost Classifier|     |  Embeddings Model |     |     RAG Pipeline  |     | SQLite Database   |
-| (Job Prediction)  |     |(all-MiniLM-L6-v2) |     |  (LLM / Chatbot)  |     | (Feedback/History)|
-+-------------------+     +---------+---------+     +-------------------+     +-------------------+
-                                    |
-                                    v
-                          +-------------------+
-                          | FAISS Vector DB   |
-                          | (Semantic Search) |
-                          +-------------------+
+## How it's put together
+
+The project is split into two independent services — a FastAPI backend that does all the heavy lifting, and a Streamlit frontend that recruiters actually interact with. They talk to each other over a REST API, which means you could swap out the frontend entirely (say, for a React app) without touching the backend.
+
+```
+Streamlit Frontend  <---- REST API ---->  FastAPI Backend
+  (what recruiters                        (all the ML/NLP,
+   actually use)                           routing, and DB logic)
+                                                  |
+                        -------------------------------------------------
+                        |              |                |               |
+                   XGBoost         Embeddings       RAG Pipeline      SQLite
+                  (role predictor)  (MiniLM-L6-v2)   (LLM chatbot)   (history/
+                                         |                            feedback)
+                                    FAISS Index
+                                  (semantic search)
 ```
 
-## 🛠️ Tech Stack
+## Tech stack
 
-| Category | Technology Stack |
-| :--- | :--- |
-| **Backend Framework** | FastAPI, Python 3.11, Pydantic |
-| **Frontend UI** | Streamlit, Pandas, Plotly |
-| **Machine Learning** | XGBoost, scikit-learn, RapidFuzz |
-| **NLP & Embeddings** | Sentence-Transformers (`all-MiniLM-L6-v2`) |
-| **Generative AI & LLMs**| LangChain, Google Gemini, OpenAI, Ollama |
-| **Vector Database** | FAISS (Facebook AI Similarity Search) |
-| **Relational Database** | SQLite (with SQLAlchemy ORM) |
+| Layer | What's used |
+|---|---|
+| Backend | FastAPI, Python 3.11, Pydantic |
+| Frontend | Streamlit, Pandas, Plotly |
+| Machine learning | XGBoost, scikit-learn, RapidFuzz |
+| NLP / embeddings | Sentence-Transformers (`all-MiniLM-L6-v2`) |
+| Generative AI | LangChain, Gemini, OpenAI, Ollama |
+| Vector search | FAISS |
+| Database | SQLite via SQLAlchemy |
 
-## 📁 Project Structure
-```text
+## Project layout
+
+```
 resume-screening-ai/
 ├── app/
-│   ├── main.py              # FastAPI application entry point
-│   ├── api/                 # API routers and endpoints
-│   ├── core/                # Configuration and security
-│   ├── models/              # Database models
-│   └── services/            # Business logic and ML inference
+│   ├── main.py              # FastAPI entry point
+│   ├── api/                 # route handlers
+│   ├── core/                # config & security
+│   ├── models/               # DB models
+│   └── services/             # business logic + ML inference
 ├── frontend/
-│   └── app.py               # Streamlit application
+│   └── app.py                # the Streamlit app
 ├── ml/
-│   ├── train_classifier.py  # Script to train the XGBoost model
-│   └── build_embeddings.py  # Script to generate FAISS indices
+│   ├── train_classifier.py   # trains the XGBoost model
+│   └── build_embeddings.py   # builds the FAISS index
 ├── data/
-│   ├── seed_data.py         # Mock data generator
-│   └── sample_resumes/      # Test documents
-├── tests/                   # Pytest test suite
-├── .env.example             # Template for environment variables
-├── requirements.txt         # Python dependencies
-├── docker-compose.yml       # Docker orchestration
-└── README.md                # Project documentation
+│   ├── seed_data.py           # generates mock candidates
+│   └── sample_resumes/
+├── tests/
+├── .env.example
+├── requirements.txt
+├── docker-compose.yml
+└── README.md
 ```
 
-## 🚀 Quick Start
+## Getting it running locally
 
-### Prerequisites
-- **Python:** 3.11 or higher
-- **pip:** Up to date
-- **Docker:** (Optional, for containerized deployment)
-
-### Installation
+**1. Clone and install dependencies**
 ```bash
 git clone https://github.com/your-org/resume-screening-ai.git
 cd resume-screening-ai
 pip install -r requirements.txt
 ```
 
-### Setup
-1. **Configure Environment Variables:**
-   Copy the example config and add your API keys.
-   ```bash
-   cp .env.example .env
-   ```
-2. **Generate Seed Data:**
-   Create synthetic candidate data and resumes for testing.
-   ```bash
-   python data/seed_data.py
-   ```
-3. **Train the Job-Role Classifier:**
-   ```bash
-   python ml/train_classifier.py
-   ```
-4. **Build the Vector Store:**
-   Generate embeddings and the FAISS index.
-   ```bash
-   python ml/build_embeddings.py
-   ```
-
-### Running the Application
-To run the system locally without Docker, you will need two terminal instances:
-
-**1. Start the Backend (API):**
+**2. Set up your environment variables**
 ```bash
-uvicorn app.main:app --reload --port 8000
+cp .env.example .env
+```
+Then fill in whichever LLM provider's API key you plan to use.
+
+**3. Generate some seed data to test with**
+```bash
+python data/seed_data.py
 ```
 
-**2. Start the Frontend (UI):**
+**4. Train the role classifier**
 ```bash
+python ml/train_classifier.py
+```
+
+**5. Build the vector index**
+```bash
+python ml/build_embeddings.py
+```
+
+**6. Run both services** (you'll need two terminals since they're separate processes)
+```bash
+# terminal 1 — backend
+uvicorn app.main:app --reload --port 8000
+
+# terminal 2 — frontend
 streamlit run frontend/app.py
 ```
 
-**3. Run Tests:**
+The API lands on `http://localhost:8000`, the UI on `http://localhost:8501`.
+
+**Running the tests**
 ```bash
 python -m pytest tests/ -v
 ```
 
-### 🐳 Docker Deployment
-You can spin up the entire application stack using Docker Compose:
+**Prefer Docker?**
 ```bash
 docker-compose up --build
 ```
-*The API will be available at `http://localhost:8000` and the UI at `http://localhost:8501`.*
+Same ports as above, just containerized.
 
-## 🔌 API Endpoints
+## API endpoints
 
-The backend provides a robust REST API for seamless integration with other internal tools.
+| Endpoint | What it does |
+|---|---|
+| `GET /health` | Health check — DB connection, model loading status |
+| `POST /api/screening/` | Screens a candidate from raw JSON text |
+| `POST /api/screening/file` | Uploads and parses a resume file, then screens it |
+| `POST /api/feedback/` | Generates candidate feedback + learning resources via LLM |
+| `POST /api/chat/` | Talks to the RAG career-coaching chatbot |
+| `GET /api/chat/history/{session_id}` | Fetches chat history for a session |
+| `DELETE /api/chat/history/{session_id}` | Clears chat history for a session |
 
-- `GET /health` : Checks system health, DB connection, and model loading status.
-- `POST /api/screening/` : Screens a candidate using a JSON payload containing raw text and extracted features.
-- `POST /api/screening/file` : Uploads a document (PDF/DOCX/TXT), parses it, and returns a detailed screening analysis.
-- `POST /api/feedback/` : Generates detailed, constructive candidate feedback and learning resources via LLM.
-- `POST /api/chat/` : Interacts with the RAG-powered career coaching chatbot.
-- `GET /api/chat/history/{session_id}` : Retrieves chat history for a specific career coaching session.
-- `DELETE /api/chat/history/{session_id}` : Clears the chat history for a given session.
+## How the scoring actually works
 
-## 🧮 Scoring Algorithm
+The compatibility score isn't a black box — it's a weighted combination of four things:
 
-Our compatibility score is deterministic, explainable, and multi-dimensional. It weights four primary criteria:
+1. **Semantic similarity (40%)** — the resume and job description both get embedded into vectors via Sentence-Transformers, and cosine similarity measures how contextually close they are.
+2. **Skill match (30%)** — fuzzy matching (via RapidFuzz) compares extracted skills against required ones, so "React.js" and "React" aren't treated as a mismatch.
+3. **Experience fit (15%)** — a Gaussian penalty curve rewards a close match to the required years of experience, while penalizing being significantly under- or over-qualified.
+4. **Education (15%)** — an ordinal comparison checks whether the candidate meets, exceeds, or falls short of the required education level.
 
-1. **Semantic Similarity (40%):** Uses Sentence-Transformers to convert both the resume and the job description into dense vector embeddings. Calculates the cosine similarity to assess overall contextual fit.
-2. **Skill Match (30%):** Utilizes `rapidfuzz` for fuzzy string matching between extracted candidate skills and required job skills, handling variations in terminology (e.g., "React.js" vs "React").
-3. **Experience Fit (15%):** Applies a Gaussian penalty model. Exact matches or slight over-qualification receive top marks, while significant under-qualification or severe over-qualification are penalized smoothly.
-4. **Education (15%):** Ordinal comparison logic. Checks if the candidate meets, exceeds, or falls short of the baseline educational requirement (e.g., Bachelor's vs Master's).
+## Configuration
 
-## ⚙️ Configuration
+Everything's controlled through `.env`:
 
-The `.env` file controls system behavior and model integrations. Key variables include:
+- `LLM_PROVIDER` — `openai`, `gemini`, or `ollama`
+- `OPENAI_API_KEY` — needed if you're using OpenAI models
+- `GEMINI_API_KEY` — needed if you're using Gemini
+- `OLLAMA_BASE_URL` — for local Ollama (defaults to `http://localhost:11434`)
+- `DB_PATH` — SQLite database path (defaults to `./data/screening.db`)
+- `FAISS_INDEX_PATH` — where the vector index gets stored
 
-- `LLM_PROVIDER`: Choose between `openai`, `gemini`, or `ollama`.
-- `OPENAI_API_KEY`: Required if using OpenAI models (e.g., GPT-4o).
-- `GEMINI_API_KEY`: Required if using Google's Gemini models.
-- `OLLAMA_BASE_URL`: The URL for local Ollama instances (default: `http://localhost:11434`).
-- `DB_PATH`: Path to the SQLite database (default: `./data/screening.db`).
-- `FAISS_INDEX_PATH`: Path to the compiled FAISS vector store.
+## License
 
-## 📄 License
-This project is licensed under the **MIT License**. See the `LICENSE` file for details.
+MIT — see `LICENSE` for the full text.
