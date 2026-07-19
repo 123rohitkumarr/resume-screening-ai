@@ -1,0 +1,28 @@
+services:
+  # FastAPI Backend
+  - type: web
+    name: resume-screening-api
+    runtime: python
+    buildCommand: bash build.sh
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.0"
+      - key: LLM_PROVIDER
+        value: gemini
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-2.0-flash
+      - key: DEBUG
+        value: "false"
+      - key: SEMANTIC_WEIGHT
+        value: "0.40"
+      - key: SKILL_WEIGHT
+        value: "0.30"
+      - key: EXPERIENCE_WEIGHT
+        value: "0.15"
+      - key: EDUCATION_WEIGHT
+        value: "0.15"
+    plan: free
+    healthCheckPath: /health
