@@ -1,0 +1,28 @@
+# Environment files
+.env
+
+# Python caching & bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Pytest caching
+.pytest_cache/
+
+# Databases
+*.db
+data/*.db
+
+# Generated data and trained models (large binaries)
+data/raw/
+data/models/
+
+# Virtual Environments
+venv/
+.venv/
+env/
+.env/
+
+# OS specific files
+.DS_Store
+Thumbs.db
