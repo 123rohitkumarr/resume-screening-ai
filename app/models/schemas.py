@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field
-from typing import Optional
+from typing import Optional, List, Dict
 from datetime import datetime
 
 
@@ -41,7 +41,6 @@ class ScreeningRequest(BaseModel):
     save_to_db: bool = True
 
 
-
 # ── Scoring & Analysis ───────────────────────────────────────
 
 class SkillAnalysis(BaseModel):
@@ -70,6 +69,11 @@ class ExplanationItem(BaseModel):
 class ScreeningResult(BaseModel):
     resume_id: Optional[int] = None
     job_id: Optional[int] = None
+    candidate_name: Optional[str] = None
+    candidate_email: Optional[str] = None
+    candidate_phone: Optional[str] = None
+    extracted_experience: Optional[float] = None
+    extracted_education: Optional[str] = None
     scores: ScoreBreakdown
     skill_analysis: SkillAnalysis
     predicted_role: Optional[str] = None
@@ -92,7 +96,7 @@ class ChatResponse(BaseModel):
     sources: list[str] = Field(default_factory=list)
 
 
-# ── System ────────────────────────────────────────────────────
+# ── System & Configuration ────────────────────────────────────
 
 class HealthCheck(BaseModel):
     status: str
@@ -111,3 +115,27 @@ class FeedbackResponse(BaseModel):
     career_tips: list[str]
     learning_resources: list[dict]
     priority_actions: list[str]
+
+
+class SettingsResponse(BaseModel):
+    semantic_weight: float
+    skill_weight: float
+    experience_weight: float
+    education_weight: float
+    llm_provider: str
+    gemini_model: str
+    ollama_model: str
+    ollama_url: str
+    openai_model: str
+
+
+class SettingsUpdateRequest(BaseModel):
+    semantic_weight: Optional[float] = None
+    skill_weight: Optional[float] = None
+    experience_weight: Optional[float] = None
+    education_weight: Optional[float] = None
+    llm_provider: Optional[str] = None
+    gemini_model: Optional[str] = None
+    ollama_model: Optional[str] = None
+    ollama_url: Optional[str] = None
+    openai_model: Optional[str] = None

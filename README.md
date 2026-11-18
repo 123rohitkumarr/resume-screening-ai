@@ -1,160 +1,215 @@
 # AI Resume Screening & Candidate Feedback System
 
-This is an end-to-end system I built to make resume screening smarter and less biased. Instead of just keyword-matching a resume against a job description, it actually looks at semantic meaning, skill overlap, experience, and education — and then explains *why* it gave the score it did, so recruiters aren't just trusting a black box.
+An end-to-end AI-powered resume screening, scoring, explainability, and career assistance platform. Instead of simple keyword matching, this system combines deep semantic similarity, fuzzy skill ontology mapping, experience gap modeling, and ordinal education analysis to calculate unbiased, explainable compatibility scores.
 
-It combines a few different pieces of ML/NLP tech: a trained XGBoost classifier for predicting job roles, sentence embeddings + FAISS for semantic search, fuzzy skill matching, and an LLM-powered chatbot that can talk through a candidate's resume and suggest how they could close skill gaps.
+It features a trained **XGBoost** role classifier, **Sentence-Transformers (`all-MiniLM-L6-v2`)** embeddings with **FAISS** vector indexing, and a **Retrieval-Augmented Generation (RAG)** career coaching assistant.
 
-## What it does
+---
 
-- **Parses resumes** from PDF, DOCX, or plain text — no manual reformatting needed.
-- **Scores candidates on four dimensions**: semantic fit, skill overlap, experience match, and education level — not just a single opaque number.
-- **Predicts the most likely job role** for a resume using a trained XGBoost model.
-- **Finds semantically similar resumes/roles fast** using Sentence-Transformer embeddings and a FAISS vector index.
-- **Explains its scoring** — every score comes with a breakdown of what contributed to it, so it's not a black box.
-- **Runs a RAG-based chatbot** that references the actual resume to give career coaching advice.
-- **Auto-generates feedback** for candidates (why they were or weren't a good fit, plus resources to close gaps).
-- **Works with multiple LLM providers** — Gemini, OpenAI, or a local Ollama instance, your choice.
-- **Has a live dashboard** built in Streamlit for recruiters to explore results interactively.
+## What It Does
 
-## How it's put together
+- **Multi-Format Resume Parsing**: Supports PDF (via PyMuPDF), DOCX (paragraphs + tables), and plain text with automatic file size, corruption, and empty document validation.
+- **Explainable 4-Dimension Candidate Scoring**:
+  - **Semantic Similarity (40%)**: Cosine distance using dense sentence embeddings.
+  - **Skill Matching (30%)**: Fuzzy skill matching with preferred bonus weighting.
+  - **Experience Matching (15%)**: Gaussian curve rewarding exact experience fits.
+  - **Education Matching (15%)**: Ordinal comparison without qualification inflation.
+- **XGBoost Job Role Classifier**: Predicts target professional roles from combined skill TF-IDF features, one-hot encoded education, and scaled years of experience.
+- **FAISS Semantic Search**: Retrieves relevant profile vectors and candidate benchmarks with cross-candidate privacy protection.
+- **Explainable AI (XAI)**: SHAP-style breakdown explaining positive, neutral, and negative factors contributing to candidate evaluation.
+- **Contextual RAG Chatbot**: Grounded conversational career advisor that generates tailored interview questions and preparation roadmaps without hallucinating private qualifications.
+- **Dynamic Configuration**: Full runtime adjustment of scoring weights (must sum to 100%) and LLM settings synchronized between frontend and backend.
 
-The project is split into two independent services — a FastAPI backend that does all the heavy lifting, and a Streamlit frontend that recruiters actually interact with. They talk to each other over a REST API, which means you could swap out the frontend entirely (say, for a React app) without touching the backend.
+---
+
+## Architecture
+
+The system is organized into two independent, decoupled services connected via REST API:
 
 ```
-Streamlit Frontend  <---- REST API ---->  FastAPI Backend
-  (what recruiters                        (all the ML/NLP,
-   actually use)                           routing, and DB logic)
-                                                  |
-                        -------------------------------------------------
-                        |              |                |               |
-                   XGBoost         Embeddings       RAG Pipeline      SQLite
-                  (role predictor)  (MiniLM-L6-v2)   (LLM chatbot)   (history/
-                                         |                            feedback)
-                                    FAISS Index
-                                  (semantic search)
+Streamlit Web UI (Port 8501)  <==== REST API ====>  FastAPI Backend Engine (Port 8000)
+    ├── Dashboard (Upload & Match)                           ├── /api/screening/
+    ├── Chatbot (RAG Assistant)                              ├── /api/chat/
+    ├── Analytics (Distributions)                            ├── /api/feedback/
+    └── Settings (Runtime Weights)                           ├── /api/settings/
+                                                             └── /health
+                                                                    │
+                     ┌──────────────────────────────────────────────┴───────────────────────────┐
+                     ▼                                              ▼                           ▼
+          Machine Learning (XGBoost)                   Embeddings & Vector Index          SQLite Database
+     (TF-IDF + OHE Edu + Scaled Exp -> Role)             (all-MiniLM-L6-v2 + FAISS)    (Resumes, JDs, Screenings)
 ```
 
-## Tech stack
+---
 
-| Layer | What's used |
+## Tech Stack
+
+| Layer | Technologies |
 |---|---|
-| Backend | FastAPI, Python 3.11, Pydantic |
-| Frontend | Streamlit, Pandas, Plotly |
-| Machine learning | XGBoost, scikit-learn, RapidFuzz |
-| NLP / embeddings | Sentence-Transformers (`all-MiniLM-L6-v2`) |
-| Generative AI | LangChain, Gemini, OpenAI, Ollama |
-| Vector search | FAISS |
-| Database | SQLite via SQLAlchemy |
+| **Backend** | FastAPI, Python 3.10+, Pydantic v2, Pydantic-Settings |
+| **Frontend** | Streamlit, Plotly, Pandas |
+| **Machine Learning** | XGBoost, scikit-learn, RapidFuzz |
+| **Deep Learning & NLP** | Sentence-Transformers (`all-MiniLM-L6-v2`), NLTK |
+| **Vector Search** | FAISS CPU (`IndexFlatIP`) |
+| **Document Parsing** | PyMuPDF (`fitz`), python-docx |
+| **Database** | SQLite via SQLAlchemy 2.0 |
+| **Generative AI** | Google Gemini (`gemini-2.0-flash`), OpenAI, local Ollama |
 
-## Project layout
+---
+
+## Project Structure
 
 ```
 resume-screening-ai/
 ├── app/
-│   ├── main.py              # FastAPI entry point
-│   ├── api/                 # route handlers
-│   ├── core/                # config & security
-│   ├── models/               # DB models
-│   └── services/             # business logic + ML inference
-├── frontend/
-│   └── app.py                # the Streamlit app
-├── ml/
-│   ├── train_classifier.py   # trains the XGBoost model
-│   └── build_embeddings.py   # builds the FAISS index
+│   ├── config.py             # Central Pydantic settings & weight validation
+│   ├── main.py               # FastAPI application entry point with lifespan
+│   ├── models/
+│   │   ├── database.py       # SQLAlchemy ORM models (resumes, screenings, chats)
+│   │   └── schemas.py        # Pydantic request & response schemas
+│   ├── routers/
+│   │   ├── chatbot.py        # RAG chat & message history routes
+│   │   ├── feedback.py       # Candidate feedback generation routes
+│   │   ├── screening.py      # Resume text & file screening routes
+│   │   └── settings_router.py# Runtime weights & LLM settings synchronization
+│   ├── services/
+│   │   ├── classifier.py     # XGBoost inference (505-dim feature transform)
+│   │   ├── embeddings.py     # SentenceTransformers & FAISS index search
+│   │   ├── explainer.py      # XAI attribution & improvement suggestions
+│   │   ├── feedback_generator.py # Skill gap & learning resource recommendations
+│   │   ├── matcher.py        # 4-dimension composite scoring engine
+│   │   ├── parser.py         # PDF, DOCX (with tables), and TXT parser
+│   │   ├── preprocessor.py   # Name, email, phone, experience & edu extraction
+│   │   ├── rag_engine.py     # Contextual RAG with privacy safeguards
+│   │   └── skill_extractor.py# Regex boundary matching & skill ontology
+│   └── utils/
+│       ├── auth.py           # Optional API key verification (X-API-Key)
+│       └── helpers.py        # Logging, text cleaning & clamping utilities
 ├── data/
-│   ├── seed_data.py           # generates mock candidates
-│   └── sample_resumes/
+│   ├── seed_data.py          # Synthetic candidate dataset generator
+│   ├── models/               # Serialized models (classifier, tfidf, faiss)
+│   └── raw/                  # Raw dataset files
+├── frontend/
+│   ├── app.py                # Streamlit landing page & system health status
+│   ├── utils.py              # Shared API client & session-state management
+│   ├── components/           # UI components (gauges, radar, XAI cards)
+│   ├── pages/                # Multi-page views (Dashboard, Chatbot, Analytics, Settings)
+│   └── styles/theme.py       # Custom modern dark theme styling
+├── ml/
+│   ├── build_embeddings.py   # Builds FAISS vector store from dataset
+│   ├── evaluate.py           # Comprehensive cross-validation & evaluation
+│   └── train_classifier.py   # Trains XGBoost role classifier
 ├── tests/
-├── .env.example
-├── requirements.txt
-├── docker-compose.yml
+│   ├── test_api.py           # API endpoint tests
+│   ├── test_end_to_end.py    # Complete integration & file upload tests
+│   ├── test_matcher.py       # Scoring dimension unit tests
+│   ├── test_preprocessor.py  # Extraction unit tests
+│   └── test_skill_extractor.py# Skill ontology unit tests
+├── .env.example              # Environment variables template
+├── requirements.txt          # Python package dependencies
+├── run_project.bat           # 1-Click Windows automatic startup script
+├── stop_project.bat          # 1-Click Windows automatic shutdown script
 └── README.md
 ```
 
-## Getting it running locally
+---
 
-**1. Clone and install dependencies**
-```bash
-git clone https://github.com/your-org/resume-screening-ai.git
-cd resume-screening-ai
-pip install -r requirements.txt
+## Localhost Quickstart (Windows)
+
+### Option 1: 1-Click Startup (Recommended)
+Simply double-click or run:
+```cmd
+run_project.bat
+```
+This script automatically:
+1. Detects and activates your Python virtual environment (`.venv`).
+2. Checks and copies `.env` if missing.
+3. Verifies required dependencies.
+4. Generates data and trains the XGBoost model if model files are missing.
+5. Clears any stale processes on ports `8000` and `8501`.
+6. Launches FastAPI on `http://127.0.0.1:8000` and Streamlit on `http://localhost:8501`.
+7. Opens `http://localhost:8501` in your default browser.
+
+To stop the application at any time, run:
+```cmd
+stop_project.bat
 ```
 
-**2. Set up your environment variables**
-```bash
-cp .env.example .env
-```
-Then fill in whichever LLM provider's API key you plan to use.
+---
 
-**3. Generate some seed data to test with**
-```bash
+### Option 2: Manual Setup
+
+1. **Create and activate a virtual environment**:
+```cmd
+python -m venv .venv
+call .venv\Scripts\activate.bat
+```
+
+2. **Install dependencies**:
+```cmd
+python -m pip install -r requirements.txt
+```
+
+3. **Configure environment variables**:
+```cmd
+copy .env.example .env
+```
+*(Optional: add your `GEMINI_API_KEY` from Google AI Studio to enable live conversational AI. Otherwise, the system runs smoothly in grounded offline mode).*
+
+4. **Train classifier and build vector index**:
+```cmd
 python data/seed_data.py
-```
-
-**4. Train the role classifier**
-```bash
 python ml/train_classifier.py
-```
-
-**5. Build the vector index**
-```bash
 python ml/build_embeddings.py
 ```
 
-**6. Run both services** (you'll need two terminals since they're separate processes)
-```bash
-# terminal 1 — backend
-uvicorn app.main:app --reload --port 8000
+5. **Run the services**:
+- **Terminal 1 (Backend)**:
+  ```cmd
+  python -m uvicorn app.main:app --host 127.0.0.1 --port 8000
+  ```
+- **Terminal 2 (Frontend)**:
+  ```cmd
+  python -m streamlit run frontend/app.py --server.port 8501
+  ```
 
-# terminal 2 — frontend
-streamlit run frontend/app.py
-```
+---
 
-The API lands on `http://localhost:8000`, the UI on `http://localhost:8501`.
+## Running the Automated Test Suite
 
-**Running the tests**
-```bash
+Execute the complete 43-test suite covering file parsing, model inference, API routes, scoring, and XAI:
+```cmd
 python -m pytest tests/ -v
 ```
 
-**Prefer Docker?**
-```bash
-docker-compose up --build
-```
-Same ports as above, just containerized.
+---
 
-## API endpoints
+## API Endpoints Reference
 
-| Endpoint | What it does |
-|---|---|
-| `GET /health` | Health check — DB connection, model loading status |
-| `POST /api/screening/` | Screens a candidate from raw JSON text |
-| `POST /api/screening/file` | Uploads and parses a resume file, then screens it |
-| `POST /api/feedback/` | Generates candidate feedback + learning resources via LLM |
-| `POST /api/chat/` | Talks to the RAG career-coaching chatbot |
-| `GET /api/chat/history/{session_id}` | Fetches chat history for a session |
-| `DELETE /api/chat/history/{session_id}` | Clears chat history for a session |
+| Method | Endpoint | Description |
+|---|---|---|
+| `GET` | `/health` | Application status, database connection, and loaded models |
+| `POST` | `/api/screening/` | Screen resume text against job requirements |
+| `POST` | `/api/screening/file` | Upload and screen resume file (`.pdf`, `.docx`, `.txt`) |
+| `POST` | `/api/feedback/` | Generate improvement feedback and course suggestions |
+| `POST` | `/api/chat/` | Converse with RAG career coaching assistant |
+| `GET` | `/api/chat/history/{session_id}` | Fetch chat history for session |
+| `DELETE` | `/api/chat/history/{session_id}` | Clear chat history for session |
+| `GET` | `/api/settings/` | Get active scoring weights and LLM provider |
+| `PUT` | `/api/settings/` | Update runtime scoring weights (validated to sum to 1.0) |
 
-## How the scoring actually works
+Swagger UI documentation is accessible at **`http://127.0.0.1:8000/docs`**.
 
-The compatibility score isn't a black box — it's a weighted combination of four things:
+---
 
-1. **Semantic similarity (40%)** — the resume and job description both get embedded into vectors via Sentence-Transformers, and cosine similarity measures how contextually close they are.
-2. **Skill match (30%)** — fuzzy matching (via RapidFuzz) compares extracted skills against required ones, so "React.js" and "React" aren't treated as a mismatch.
-3. **Experience fit (15%)** — a Gaussian penalty curve rewards a close match to the required years of experience, while penalizing being significantly under- or over-qualified.
-4. **Education (15%)** — an ordinal comparison checks whether the candidate meets, exceeds, or falls short of the required education level.
+## Troubleshooting
 
-## Configuration
+- **Port Conflict (`WinError 10048`)**: Run `stop_project.bat` to terminate any zombie processes occupying ports 8000 or 8501.
+- **NLTK Download Offline**: The preprocessor includes automatic fallbacks so missing NLTK internet access will not crash the app.
+- **LLM Key Missing**: If no `GEMINI_API_KEY` is provided in `.env`, the RAG chatbot operates in grounded offline mode, answering questions directly from the candidate's screening results and skill gaps.
 
-Everything's controlled through `.env`:
-
-- `LLM_PROVIDER` — `openai`, `gemini`, or `ollama`
-- `OPENAI_API_KEY` — needed if you're using OpenAI models
-- `GEMINI_API_KEY` — needed if you're using Gemini
-- `OLLAMA_BASE_URL` — for local Ollama (defaults to `http://localhost:11434`)
-- `DB_PATH` — SQLite database path (defaults to `./data/screening.db`)
-- `FAISS_INDEX_PATH` — where the vector index gets stored
+---
 
 ## License
 
-MIT — see `LICENSE` for the full text.
+MIT License.

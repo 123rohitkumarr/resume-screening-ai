@@ -12,10 +12,16 @@ __pycache__/
 # Databases
 *.db
 data/*.db
+data/app.db
 
-# Generated data and trained models (large binaries)
-data/raw/
-data/models/
+# Logs
+*.log
+logs/
+
+# Uploads & Temporary files
+uploads/
+temp/
+tmp/
 
 # Virtual Environments
 venv/

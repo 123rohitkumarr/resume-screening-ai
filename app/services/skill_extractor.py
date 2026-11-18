@@ -1,3 +1,4 @@
+import re
 from rapidfuzz import fuzz
 from app.utils.helpers import setup_logger, normalize_skill
 from app.models.schemas import SkillAnalysis
@@ -84,20 +85,25 @@ def resolve_alias(skill: str) -> str:
 def extract_skills(text: str) -> list[str]:
     if not text:
         return []
-    
-    text_lower = text.lower()
+
+    # Clean text preserving dots and plus/hashes for language names (e.g. C++, C#, .NET, Node.js)
+    cleaned_text = re.sub(r'[/\\()\[\]{};:,\n\r\t|•–—]', ' ', text.lower())
+    padded_text = f" {cleaned_text} "
+
     found_skills = set()
-    
+
     for category, skills in SKILL_TAXONOMY.items():
         for skill in skills:
-            if f" {skill} " in f" {text_lower} " or f" {skill}," in f" {text_lower} ":
+            pattern = r'(?<![a-zA-Z0-9])' + re.escape(skill) + r'(?![a-zA-Z0-9])'
+            if re.search(pattern, padded_text):
                 found_skills.add(skill)
-                
+
     for alias, full_name in SKILL_ALIASES.items():
-        if f" {alias} " in f" {text_lower} " or f" {alias}," in f" {text_lower} ":
+        pattern = r'(?<![a-zA-Z0-9])' + re.escape(alias) + r'(?![a-zA-Z0-9])'
+        if re.search(pattern, padded_text):
             found_skills.add(full_name)
-            
-    return [normalize_skill(skill) for skill in found_skills]
+
+    return sorted([normalize_skill(skill) for skill in found_skills])
 
 def match_skills(resume_skills: list[str], required_skills: list[str], preferred_skills: list[str] = None) -> SkillAnalysis:
     if preferred_skills is None:

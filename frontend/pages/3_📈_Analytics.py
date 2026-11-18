@@ -4,24 +4,33 @@ import plotly.express as px
 import json
 
 from frontend.styles.theme import apply_custom_theme
+from frontend.utils import init_session_state
 from app.models.database import SessionLocal, ScreeningRecord, ResumeRecord, JobDescriptionRecord
 
 apply_custom_theme()
+init_session_state()
 
 st.markdown('<h1 class="gradient-text">📈 Screening & Candidate Analytics</h1>', unsafe_allow_html=True)
 st.markdown("Monitor historical screenings, candidate distributions, and aggregate performance insights.")
 
 # Query historical data
-db = SessionLocal()
+screenings = []
+resumes = []
+jds = []
+
 try:
-    screenings = db.query(ScreeningRecord).all()
-    resumes = db.query(ResumeRecord).all()
-    jds = db.query(JobDescriptionRecord).all()
-finally:
-    db.close()
+    db = SessionLocal()
+    try:
+        screenings = db.query(ScreeningRecord).all()
+        resumes = db.query(ResumeRecord).all()
+        jds = db.query(JobDescriptionRecord).all()
+    finally:
+        db.close()
+except Exception as e:
+    st.error(f"Error accessing database: {e}")
 
 if not screenings:
-    st.info("No historical screenings found in the database. Run some resume evaluations on the Dashboard first!")
+    st.info("No historical screenings found in the database. Run resume evaluations on the Dashboard first!")
 else:
     # Build DataFrames
     df_scr = pd.DataFrame([{
@@ -41,8 +50,8 @@ else:
         "id": r.id,
         "name": r.name,
         "predicted_role": r.predicted_role or "Unknown",
-        "experience": r.years_experience or 0.0,
-        "education": r.education or "Bachelors"
+        "experience": r.years_experience if r.years_experience is not None else 0.0,
+        "education": r.education or "Unknown"
     } for r in resumes])
 
     # Join DataFrames
@@ -58,7 +67,8 @@ else:
     with col3:
         st.metric("Avg Years of Experience", f"{df_res['experience'].mean():.1f} Years")
     with col4:
-        st.metric("Top Education Tier", df_res["education"].mode().iloc[0] if not df_res.empty else "N/A")
+        top_edu = df_res["education"].mode().iloc[0] if not df_res.empty else "N/A"
+        st.metric("Top Education Tier", top_edu)
 
     # Double columns charts
     ch1, ch2 = st.columns(2)
@@ -66,9 +76,9 @@ else:
     with ch1:
         st.markdown("### 🎭 Match Score Distribution")
         fig_dist = px.histogram(
-            df_scr, 
-            x="overall", 
-            nbins=10, 
+            df_scr,
+            x="overall",
+            nbins=10,
             labels={"overall": "Overall Match Score (%)"},
             color_discrete_sequence=["#6366f1"]
         )
@@ -86,8 +96,8 @@ else:
         role_counts = df_res["predicted_role"].value_counts().reset_index()
         role_counts.columns = ["Role", "Count"]
         fig_pie = px.pie(
-            role_counts, 
-            values="Count", 
+            role_counts,
+            values="Count",
             names="Role",
             hole=0.4,
             color_discrete_sequence=px.colors.qualitative.Pastel
@@ -104,12 +114,13 @@ else:
     st.markdown("### ⚠️ Common Missing Skills Across Candidates")
     all_missing = []
     for item in df_scr["missing"]:
-        all_missing.extend(item)
+        if isinstance(item, list):
+            all_missing.extend(item)
 
     if all_missing:
         missing_counts = pd.Series(all_missing).value_counts().reset_index()
         missing_counts.columns = ["Skill", "Count"]
-        
+
         fig_skills = px.bar(
             missing_counts.head(10),
             x="Count",
@@ -131,6 +142,7 @@ else:
 
     # Historical screenings log table
     st.markdown("### 📜 Screening Logs")
-    log_df = df_merge[["name", "predicted_role", "experience", "overall", "created_at"]].sort_values(by="created_at", ascending=False)
-    log_df.columns = ["Candidate Name", "Predicted Role", "Experience (Years)", "Compatibility Score (%)", "Screening Date"]
-    st.dataframe(log_df, use_container_width=True)
+    if not df_merge.empty and "created_at" in df_merge.columns:
+        log_df = df_merge[["name", "predicted_role", "experience", "overall", "created_at"]].sort_values(by="created_at", ascending=False)
+        log_df.columns = ["Candidate Name", "Predicted Role", "Experience (Years)", "Compatibility Score (%)", "Screening Date"]
+        st.dataframe(log_df, use_container_width=True)

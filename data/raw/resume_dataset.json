@@ -1,0 +1,1472 @@
+[
+    {
+        "Name": "David Harris",
+        "YearsExperience": 1,
+        "Skills": "data structures, system design, rest apis, algorithms, git, microservices, agile, java, c++",
+        "Education": "Associate",
+        "JobRole": "Software Engineer"
+    },
+    {
+        "Name": "Kimberly Young",
+        "YearsExperience": 15,
+        "Skills": "communication, power bi, requirements gathering, excel, sql, uml, jira",
+        "Education": "Bachelors",
+        "JobRole": "Business Analyst"
+    },
+    {
+        "Name": "Daniel Cruz",
+        "YearsExperience": 2,
+        "Skills": "git, data structures, c++, algorithms, microservices, system design, java",
+        "Education": "Bachelors",
+        "JobRole": "Software Engineer"
+    },
+    {
+        "Name": "Michelle Cruz",
+        "YearsExperience": 2,
+        "Skills": "risk management, communication, budgeting, leadership, stakeholder management, ms project",
+        "Education": "Bachelors",
+        "JobRole": "Project Manager"
+    },
+    {
+        "Name": "John Campbell",
+        "YearsExperience": 14,
+        "Skills": "api testing, jira, agile, selenium, cypress, test automation, python, performance testing",
+        "Education": "Masters",
+        "JobRole": "QA Engineer"
+    },
+    {
+        "Name": "Rebecca Hill",
+        "YearsExperience": 3,
+        "Skills": "kotlin, ui/ux, rest apis, java, ios, firebase, android, swift, bash",
+        "Education": "Masters",
+        "JobRole": "Mobile Developer"
+    },
+    {
+        "Name": "Sharon Scott",
+        "YearsExperience": 15,
+        "Skills": "css, adobe xd, sketch, html, wireframing, user research, figma",
+        "Education": "Bachelors",
+        "JobRole": "UX Designer"
+    },
+    {
+        "Name": "Karen Robinson",
+        "YearsExperience": 2,
+        "Skills": "jira, leadership, stakeholder management, communication, budgeting, scrum",
+        "Education": "Masters",
+        "JobRole": "Project Manager"
+    },
+    {
+        "Name": "Robert Adams",
+        "YearsExperience": 14,
+        "Skills": "ios, android, firebase, flutter, java, rest apis",
+        "Education": "Bachelors",
+        "JobRole": "Mobile Developer"
+    },
+    {
+        "Name": "Mary Green",
+        "YearsExperience": 9,
+        "Skills": "java, jira, test automation, selenium, performance testing, cypress, agile",
+        "Education": "Masters",
+        "JobRole": "QA Engineer"
+    },
+    {
+        "Name": "David Gomez",
+        "YearsExperience": 11,
+        "Skills": "statistics, r, pytorch, scikit-learn, pandas, deep learning, sql, numpy, python",
+        "Education": "Masters",
+        "JobRole": "Data Scientist"
+    },
+    {
+        "Name": "Kenneth Davis",
+        "YearsExperience": 1,
+        "Skills": "machine learning, scikit-learn, sql, r, numpy, deep learning, data visualization, python, docker",
+        "Education": "Masters",
+        "JobRole": "Data Scientist"
+    },
+    {
+        "Name": "James Hill",
+        "YearsExperience": 6,
+        "Skills": "python, r, tensorflow, deep learning, machine learning, scikit-learn, data visualization, numpy, pytorch, html",
+        "Education": "Bachelors",
+        "JobRole": "Data Scientist"
+    },
+    {
+        "Name": "Elizabeth Jones",
+        "YearsExperience": 8,
+        "Skills": "kubernetes, feature engineering, aws sagemaker, python, pytorch, mlops, tensorflow, docker",
+        "Education": "PhD",
+        "JobRole": "ML Engineer"
+    },
+    {
+        "Name": "Carol Hernandez",
+        "YearsExperience": 10,
+        "Skills": "jira, budgeting, communication, risk management, agile, leadership, stakeholder management, microservices",
+        "Education": "Bachelors",
+        "JobRole": "Project Manager"
+    },
+    {
+        "Name": "William Gomez",
+        "YearsExperience": 10,
+        "Skills": "python, redis, sql, postgresql, rabbitmq, mongodb, node.js",
+        "Education": "Bachelors",
+        "JobRole": "Backend Developer"
+    },
+    {
+        "Name": "John Nelson",
+        "YearsExperience": 4,
+        "Skills": "r, machine learning, scikit-learn, pytorch, deep learning, data visualization, tensorflow, sql, selenium",
+        "Education": "Masters",
+        "JobRole": "Data Scientist"
+    },
+    {
+        "Name": "Jason Gomez",
+        "YearsExperience": 13,
+        "Skills": "compliance, siem, python, vulnerability assessment, penetration testing, linux, firewalls, network security, incident response",
+        "Education": "PhD",
+        "JobRole": "Cybersecurity Analyst"
+    },
+    {
+        "Name": "Susan Clark",
+        "YearsExperience": 9,
+        "Skills": "sql, requirements gathering, jira, excel, uml, power bi, data analysis, stakeholder management, communication",
+        "Education": "Masters",
+        "JobRole": "Business Analyst"
+    },
+    {
+        "Name": "Carol Allen",
+        "YearsExperience": 7,
+        "Skills": "typescript, html, css, javascript, responsive design, node.js, rest apis, git, react, webpack",
+        "Education": "Bachelors",
+        "JobRole": "Web Developer"
+    },
+    {
+        "Name": "Brian Cruz",
+        "YearsExperience": 5,
+        "Skills": "docker, monitoring, terraform, bash, kubernetes, ansible, jenkins, aws, linux, ci/cd",
+        "Education": "Bachelors",
+        "JobRole": "DevOps Engineer"
+    },
+    {
+        "Name": "Donna Carter",
+        "YearsExperience": 9,
+        "Skills": "excel, tableau, python, reporting, data visualization, statistics, data cleaning, sql",
+        "Education": "Masters",
+        "JobRole": "Data Analyst"
+    },
+    {
+        "Name": "Amanda Hill",
+        "YearsExperience": 13,
+        "Skills": "bash, docker, ci/cd, jenkins, terraform, aws, ui/ux",
+        "Education": "PhD",
+        "JobRole": "DevOps Engineer"
+    },
+    {
+        "Name": "Kimberly Martin",
+        "YearsExperience": 8,
+        "Skills": "java, microservices, rest apis, sql, mongodb, rabbitmq",
+        "Education": "Associate",
+        "JobRole": "Backend Developer"
+    },
+    {
+        "Name": "Elizabeth Harris",
+        "YearsExperience": 12,
+        "Skills": "linux, python, siem, network security, compliance, incident response, penetration testing",
+        "Education": "Bachelors",
+        "JobRole": "Cybersecurity Analyst"
+    },
+    {
+        "Name": "Patricia Taylor",
+        "YearsExperience": 14,
+        "Skills": "excel, reporting, tableau, data visualization, sql, power bi, statistics, python, data cleaning",
+        "Education": "Masters",
+        "JobRole": "Data Analyst"
+    },
+    {
+        "Name": "Thomas Turner",
+        "YearsExperience": 2,
+        "Skills": "docker, monitoring, bash, aws, kubernetes, ansible, jenkins, terraform, linux, tensorflow",
+        "Education": "Bachelors",
+        "JobRole": "DevOps Engineer"
+    },
+    {
+        "Name": "Stephanie Torres",
+        "YearsExperience": 7,
+        "Skills": "leadership, risk management, budgeting, jira, stakeholder management, scrum",
+        "Education": "Bachelors",
+        "JobRole": "Project Manager"
+    },
+    {
+        "Name": "Rebecca Sanchez",
+        "YearsExperience": 12,
+        "Skills": "ansible, aws, docker, terraform, jenkins, ci/cd, bash, excel",
+        "Education": "Masters",
+        "JobRole": "DevOps Engineer"
+    },
+    {
+        "Name": "Jessica Taylor",
+        "YearsExperience": 4,
+        "Skills": "azure, security, kubernetes, aws, docker, microservices, networking, serverless",
+        "Education": "Bachelors",
+        "JobRole": "Cloud Architect"
+    },
+    {
+        "Name": "Thomas Mitchell",
+        "YearsExperience": 10,
+        "Skills": "statistics, pytorch, tensorflow, machine learning, sql, deep learning, numpy, python, data visualization",
+        "Education": "Masters",
+        "JobRole": "Data Scientist"
+    },
+    {
+        "Name": "John Parker",
+        "YearsExperience": 2,
+        "Skills": "microservices, serverless, terraform, security, azure, gcp, docker",
+        "Education": "PhD",
+        "JobRole": "Cloud Architect"
+    },
+    {
+        "Name": "Charles Lee",
+        "YearsExperience": 12,
+        "Skills": "node.js, sql, rabbitmq, rest apis, postgresql, microservices, mongodb, java, python",
+        "Education": "Associate",
+        "JobRole": "Backend Developer"
+    },
+    {
+        "Name": "Mark Phillips",
+        "YearsExperience": 14,
+        "Skills": "python, java, microservices, system design, rest apis, git, algorithms, data structures, c++, agile",
+        "Education": "Associate",
+        "JobRole": "Software Engineer"
+    },
+    {
+        "Name": "John Lewis",
+        "YearsExperience": 15,
+        "Skills": "flutter, rest apis, ui/ux, java, swift, kotlin, ios, firebase, android, react native",
+        "Education": "Masters",
+        "JobRole": "Mobile Developer"
+    },
+    {
+        "Name": "Kenneth Nguyen",
+        "YearsExperience": 3,
+        "Skills": "communication, agile, ms project, leadership, risk management, scrum, stakeholder management, react native",
+        "Education": "Associate",
+        "JobRole": "Project Manager"
+    },
+    {
+        "Name": "Carol Baker",
+        "YearsExperience": 11,
+        "Skills": "python, linux, network security, compliance, vulnerability assessment, siem, incident response, firewalls, penetration testing",
+        "Education": "Bachelors",
+        "JobRole": "Cybersecurity Analyst"
+    },
+    {
+        "Name": "Edward Wright",
+        "YearsExperience": 13,
+        "Skills": "sql, data visualization, pandas, numpy, scikit-learn, statistics, deep learning",
+        "Education": "Bachelors",
+        "JobRole": "Data Scientist"
+    },
+    {
+        "Name": "Jason Davis",
+        "YearsExperience": 8,
+        "Skills": "responsive design, git, typescript, rest apis, react, node.js, webpack",
+        "Education": "Bachelors",
+        "JobRole": "Web Developer"
+    },
+    {
+        "Name": "Donna Nguyen",
+        "YearsExperience": 11,
+        "Skills": "pytorch, model deployment, docker, mlops, aws sagemaker, feature engineering, kubernetes, tensorflow, python",
+        "Education": "Bachelors",
+        "JobRole": "ML Engineer"
+    },
+    {
+        "Name": "Donald Lewis",
+        "YearsExperience": 13,
+        "Skills": "redis, python, microservices, postgresql, rabbitmq, rest apis, java, node.js",
+        "Education": "Bachelors",
+        "JobRole": "Backend Developer"
+    },
+    {
+        "Name": "Charles Thomas",
+        "YearsExperience": 5,
+        "Skills": "ci/cd, monitoring, kubernetes, ansible, linux, bash, terraform, aws, mlops",
+        "Education": "PhD",
+        "JobRole": "DevOps Engineer"
+    },
+    {
+        "Name": "Karen Hernandez",
+        "YearsExperience": 10,
+        "Skills": "linux, python, firewalls, compliance, penetration testing, network security, siem",
+        "Education": "Masters",
+        "JobRole": "Cybersecurity Analyst"
+    },
+    {
+        "Name": "Kenneth Anderson",
+        "YearsExperience": 1,
+        "Skills": "uml, stakeholder management, power bi, data analysis, sql, excel, incident response",
+        "Education": "Associate",
+        "JobRole": "Business Analyst"
+    },
+    {
+        "Name": "Edward Clark",
+        "YearsExperience": 10,
+        "Skills": "reporting, data visualization, tableau, data cleaning, python, statistics, excel",
+        "Education": "PhD",
+        "JobRole": "Data Analyst"
+    },
+    {
+        "Name": "Mark Carter",
+        "YearsExperience": 1,
+        "Skills": "docker, pytorch, model deployment, mlops, kubernetes, python, aws sagemaker",
+        "Education": "Bachelors",
+        "JobRole": "ML Engineer"
+    },
+    {
+        "Name": "Patricia King",
+        "YearsExperience": 1,
+        "Skills": "aws, microservices, networking, azure, kubernetes, security, linux",
+        "Education": "PhD",
+        "JobRole": "Cloud Architect"
+    },
+    {
+        "Name": "David King",
+        "YearsExperience": 11,
+        "Skills": "requirements gathering, data analysis, sql, jira, uml, excel, stakeholder management, power bi, communication",
+        "Education": "Bachelors",
+        "JobRole": "Business Analyst"
+    },
+    {
+        "Name": "Timothy Gomez",
+        "YearsExperience": 14,
+        "Skills": "react, html, webpack, responsive design, javascript, typescript, git",
+        "Education": "Masters",
+        "JobRole": "Web Developer"
+    },
+    {
+        "Name": "Deborah Mitchell",
+        "YearsExperience": 11,
+        "Skills": "typescript, rest apis, css, webpack, javascript, node.js, git",
+        "Education": "Masters",
+        "JobRole": "Web Developer"
+    },
+    {
+        "Name": "Kevin Parker",
+        "YearsExperience": 12,
+        "Skills": "node.js, javascript, css, react, html, rest apis, responsive design, figma",
+        "Education": "Masters",
+        "JobRole": "Web Developer"
+    },
+    {
+        "Name": "Elizabeth Young",
+        "YearsExperience": 15,
+        "Skills": "aws sagemaker, docker, mlops, feature engineering, kubernetes, tensorflow, model deployment, python",
+        "Education": "Associate",
+        "JobRole": "ML Engineer"
+    },
+    {
+        "Name": "Stephanie Sanchez",
+        "YearsExperience": 14,
+        "Skills": "reporting, data cleaning, tableau, sql, excel, python",
+        "Education": "Bachelors",
+        "JobRole": "Data Analyst"
+    },
+    {
+        "Name": "Emily Moore",
+        "YearsExperience": 14,
+        "Skills": "jira, scrum, stakeholder management, ms project, budgeting, risk management",
+        "Education": "Masters",
+        "JobRole": "Project Manager"
+    },
+    {
+        "Name": "Jessica Nguyen",
+        "YearsExperience": 6,
+        "Skills": "node.js, postgresql, java, python, mongodb, sql",
+        "Education": "Bachelors",
+        "JobRole": "Backend Developer"
+    },
+    {
+        "Name": "Christopher Martin",
+        "YearsExperience": 9,
+        "Skills": "cypress, performance testing, java, selenium, python, api testing, jira, agile, test automation",
+        "Education": "Bachelors",
+        "JobRole": "QA Engineer"
+    },
+    {
+        "Name": "Susan Gonzalez",
+        "YearsExperience": 14,
+        "Skills": "communication, jira, excel, sql, power bi, uml, stakeholder management, requirements gathering",
+        "Education": "Bachelors",
+        "JobRole": "Business Analyst"
+    },
+    {
+        "Name": "Margaret Mitchell",
+        "YearsExperience": 6,
+        "Skills": "sql, excel, data cleaning, statistics, power bi, reporting, python, data visualization",
+        "Education": "Bachelors",
+        "JobRole": "Data Analyst"
+    },
+    {
+        "Name": "Joseph Allen",
+        "YearsExperience": 9,
+        "Skills": "react, typescript, javascript, angular, webpack, sass, css, responsive design",
+        "Education": "Bachelors",
+        "JobRole": "Frontend Developer"
+    },
+    {
+        "Name": "Margaret Hill",
+        "YearsExperience": 9,
+        "Skills": "rest apis, react, node.js, html, typescript, git, penetration testing",
+        "Education": "Bachelors",
+        "JobRole": "Web Developer"
+    },
+    {
+        "Name": "Stephanie Green",
+        "YearsExperience": 8,
+        "Skills": "responsive design, webpack, css, typescript, sass, vue, react, angular, javascript",
+        "Education": "Bachelors",
+        "JobRole": "Frontend Developer"
+    },
+    {
+        "Name": "Barbara Turner",
+        "YearsExperience": 12,
+        "Skills": "react native, ui/ux, kotlin, flutter, ios, swift, firebase, rest apis, java, android",
+        "Education": "Masters",
+        "JobRole": "Mobile Developer"
+    },
+    {
+        "Name": "Edward Phillips",
+        "YearsExperience": 3,
+        "Skills": "tensorflow, deep learning, sql, machine learning, scikit-learn, python, pytorch, numpy, pandas",
+        "Education": "Masters",
+        "JobRole": "Data Scientist"
+    },
+    {
+        "Name": "Michelle Torres",
+        "YearsExperience": 5,
+        "Skills": "git, html, node.js, javascript, css, react, rest apis, typescript, responsive design",
+        "Education": "Masters",
+        "JobRole": "Web Developer"
+    },
+    {
+        "Name": "Kenneth Taylor",
+        "YearsExperience": 3,
+        "Skills": "git, rest apis, html, responsive design, webpack, css, typescript, node.js, react",
+        "Education": "PhD",
+        "JobRole": "Web Developer"
+    },
+    {
+        "Name": "Thomas Phillips",
+        "YearsExperience": 1,
+        "Skills": "numpy, r, pytorch, data visualization, deep learning, statistics, tensorflow, pandas, sql",
+        "Education": "Bachelors",
+        "JobRole": "Data Scientist"
+    },
+    {
+        "Name": "David Clark",
+        "YearsExperience": 11,
+        "Skills": "power bi, data analysis, uml, requirements gathering, stakeholder management, jira, communication, sql, excel",
+        "Education": "Masters",
+        "JobRole": "Business Analyst"
+    },
+    {
+        "Name": "Nancy Anderson",
+        "YearsExperience": 1,
+        "Skills": "swift, rest apis, react native, ios, kotlin, ui/ux, flutter, java",
+        "Education": "Bachelors",
+        "JobRole": "Mobile Developer"
+    },
+    {
+        "Name": "Charles Diaz",
+        "YearsExperience": 13,
+        "Skills": "android, ios, kotlin, rest apis, react native, java, api testing",
+        "Education": "Masters",
+        "JobRole": "Mobile Developer"
+    },
+    {
+        "Name": "Ronald Johnson",
+        "YearsExperience": 2,
+        "Skills": "tableau, data visualization, statistics, excel, python, power bi, data cleaning, reporting",
+        "Education": "Bachelors",
+        "JobRole": "Data Analyst"
+    },
+    {
+        "Name": "Margaret Davis",
+        "YearsExperience": 13,
+        "Skills": "test automation, jira, selenium, api testing, python, cypress, java, performance testing, azure",
+        "Education": "Bachelors",
+        "JobRole": "QA Engineer"
+    },
+    {
+        "Name": "William Walker",
+        "YearsExperience": 6,
+        "Skills": "figma, wireframing, user research, sketch, usability testing, adobe xd, prototyping",
+        "Education": "Bachelors",
+        "JobRole": "UX Designer"
+    },
+    {
+        "Name": "Jessica Martinez",
+        "YearsExperience": 2,
+        "Skills": "risk management, communication, leadership, ms project, stakeholder management, scrum",
+        "Education": "Associate",
+        "JobRole": "Project Manager"
+    },
+    {
+        "Name": "Anthony Lewis",
+        "YearsExperience": 12,
+        "Skills": "power bi, sql, excel, python, statistics, tableau, data cleaning, reporting, data visualization",
+        "Education": "Bachelors",
+        "JobRole": "Data Analyst"
+    },
+    {
+        "Name": "Kevin Phillips",
+        "YearsExperience": 15,
+        "Skills": "data visualization, excel, power bi, data cleaning, statistics, python, sql",
+        "Education": "Bachelors",
+        "JobRole": "Data Analyst"
+    },
+    {
+        "Name": "Michael Baker",
+        "YearsExperience": 6,
+        "Skills": "mongodb, java, rest apis, node.js, python, redis, sql, postgresql, microservices, rabbitmq",
+        "Education": "Masters",
+        "JobRole": "Backend Developer"
+    },
+    {
+        "Name": "Melissa Roberts",
+        "YearsExperience": 5,
+        "Skills": "wireframing, prototyping, css, sketch, html, usability testing",
+        "Education": "Bachelors",
+        "JobRole": "UX Designer"
+    },
+    {
+        "Name": "Richard Mitchell",
+        "YearsExperience": 2,
+        "Skills": "terraform, microservices, networking, azure, docker, gcp, kubernetes, security, serverless",
+        "Education": "Masters",
+        "JobRole": "Cloud Architect"
+    },
+    {
+        "Name": "Robert Walker",
+        "YearsExperience": 1,
+        "Skills": "usability testing, adobe xd, css, sketch, user research, html, prototyping, wireframing",
+        "Education": "Associate",
+        "JobRole": "UX Designer"
+    },
+    {
+        "Name": "Stephanie Baker",
+        "YearsExperience": 8,
+        "Skills": "java, cypress, selenium, agile, test automation, api testing, python, jira, performance testing",
+        "Education": "Bachelors",
+        "JobRole": "QA Engineer"
+    },
+    {
+        "Name": "Joshua Walker",
+        "YearsExperience": 10,
+        "Skills": "vulnerability assessment, linux, incident response, network security, siem, python, firewalls, compliance, penetration testing, scikit-learn",
+        "Education": "Bachelors",
+        "JobRole": "Cybersecurity Analyst"
+    },
+    {
+        "Name": "Karen Carter",
+        "YearsExperience": 7,
+        "Skills": "monitoring, bash, terraform, ansible, kubernetes, aws, linux, ci/cd, docker",
+        "Education": "Bachelors",
+        "JobRole": "DevOps Engineer"
+    },
+    {
+        "Name": "Robert White",
+        "YearsExperience": 5,
+        "Skills": "compliance, firewalls, vulnerability assessment, network security, penetration testing, siem, python",
+        "Education": "Masters",
+        "JobRole": "Cybersecurity Analyst"
+    },
+    {
+        "Name": "Edward Williams",
+        "YearsExperience": 2,
+        "Skills": "networking, microservices, security, aws, kubernetes, serverless, azure, docker, terraform",
+        "Education": "Bachelors",
+        "JobRole": "Cloud Architect"
+    },
+    {
+        "Name": "Lisa Thompson",
+        "YearsExperience": 12,
+        "Skills": "power bi, reporting, python, excel, sql, statistics, tableau, data cleaning, data visualization, usability testing",
+        "Education": "Masters",
+        "JobRole": "Data Analyst"
+    },
+    {
+        "Name": "Steven Rodriguez",
+        "YearsExperience": 6,
+        "Skills": "requirements gathering, uml, jira, stakeholder management, communication, power bi, data analysis, excel",
+        "Education": "Masters",
+        "JobRole": "Business Analyst"
+    },
+    {
+        "Name": "Ronald Hall",
+        "YearsExperience": 2,
+        "Skills": "angular, typescript, webpack, react, responsive design, vue, css, sass, html, javascript",
+        "Education": "Masters",
+        "JobRole": "Frontend Developer"
+    },
+    {
+        "Name": "Lisa Taylor",
+        "YearsExperience": 13,
+        "Skills": "security, microservices, gcp, kubernetes, serverless, azure, docker, networking, terraform, siem",
+        "Education": "Associate",
+        "JobRole": "Cloud Architect"
+    },
+    {
+        "Name": "Robert Baker",
+        "YearsExperience": 15,
+        "Skills": "serverless, aws, gcp, networking, security, microservices, azure, kubernetes, jira",
+        "Education": "Associate",
+        "JobRole": "Cloud Architect"
+    },
+    {
+        "Name": "Robert Garcia",
+        "YearsExperience": 6,
+        "Skills": "node.js, python, rabbitmq, microservices, postgresql, mongodb, rest apis, redis, sql, java",
+        "Education": "Bachelors",
+        "JobRole": "Backend Developer"
+    },
+    {
+        "Name": "Joseph Thompson",
+        "YearsExperience": 9,
+        "Skills": "linux, siem, python, incident response, firewalls, network security, compliance, penetration testing, vulnerability assessment",
+        "Education": "PhD",
+        "JobRole": "Cybersecurity Analyst"
+    },
+    {
+        "Name": "Laura Rivera",
+        "YearsExperience": 6,
+        "Skills": "communication, jira, ms project, leadership, risk management, agile, scrum, stakeholder management",
+        "Education": "Masters",
+        "JobRole": "Project Manager"
+    },
+    {
+        "Name": "Patricia Allen",
+        "YearsExperience": 2,
+        "Skills": "python, rest apis, algorithms, system design, java, data structures, microservices",
+        "Education": "PhD",
+        "JobRole": "Software Engineer"
+    },
+    {
+        "Name": "Richard Harris",
+        "YearsExperience": 14,
+        "Skills": "tensorflow, mlops, model deployment, docker, pytorch, kubernetes, feature engineering, aws sagemaker, python",
+        "Education": "Bachelors",
+        "JobRole": "ML Engineer"
+    },
+    {
+        "Name": "Melissa Green",
+        "YearsExperience": 7,
+        "Skills": "react, typescript, javascript, vue, responsive design, html, angular, sass",
+        "Education": "PhD",
+        "JobRole": "Frontend Developer"
+    },
+    {
+        "Name": "Jason Hernandez",
+        "YearsExperience": 6,
+        "Skills": "data cleaning, power bi, statistics, tableau, reporting, sql, excel, data visualization, python",
+        "Education": "Masters",
+        "JobRole": "Data Analyst"
+    },
+    {
+        "Name": "Donna Cruz",
+        "YearsExperience": 12,
+        "Skills": "usability testing, html, figma, adobe xd, user research, prototyping, wireframing",
+        "Education": "Masters",
+        "JobRole": "UX Designer"
+    },
+    {
+        "Name": "Joshua White",
+        "YearsExperience": 7,
+        "Skills": "css, user research, usability testing, sketch, wireframing, figma, adobe xd, prototyping, html, vulnerability assessment",
+        "Education": "Masters",
+        "JobRole": "UX Designer"
+    },
+    {
+        "Name": "Paul Perez",
+        "YearsExperience": 9,
+        "Skills": "jira, power bi, excel, uml, requirements gathering, communication, sql, stakeholder management",
+        "Education": "Bachelors",
+        "JobRole": "Business Analyst"
+    },
+    {
+        "Name": "Timothy Lee",
+        "YearsExperience": 15,
+        "Skills": "stakeholder management, jira, ms project, risk management, communication, budgeting, scrum, leadership",
+        "Education": "Bachelors",
+        "JobRole": "Project Manager"
+    },
+    {
+        "Name": "Steven Davis",
+        "YearsExperience": 6,
+        "Skills": "react, html, webpack, sass, css, vue, javascript, angular, responsive design",
+        "Education": "PhD",
+        "JobRole": "Frontend Developer"
+    },
+    {
+        "Name": "Steven Mitchell",
+        "YearsExperience": 15,
+        "Skills": "tensorflow, docker, feature engineering, mlops, pytorch, model deployment, python",
+        "Education": "Masters",
+        "JobRole": "ML Engineer"
+    },
+    {
+        "Name": "Kimberly Campbell",
+        "YearsExperience": 5,
+        "Skills": "docker, aws, networking, security, azure, serverless, microservices, gcp, terraform, kubernetes",
+        "Education": "Masters",
+        "JobRole": "Cloud Architect"
+    },
+    {
+        "Name": "Amanda Rivera",
+        "YearsExperience": 14,
+        "Skills": "user research, figma, css, usability testing, sketch, wireframing",
+        "Education": "Bachelors",
+        "JobRole": "UX Designer"
+    },
+    {
+        "Name": "Sarah Flores",
+        "YearsExperience": 13,
+        "Skills": "ansible, bash, linux, monitoring, ci/cd, jenkins, aws, kubernetes, docker, terraform",
+        "Education": "Bachelors",
+        "JobRole": "DevOps Engineer"
+    },
+    {
+        "Name": "Jessica Rodriguez",
+        "YearsExperience": 8,
+        "Skills": "bash, terraform, ansible, ci/cd, aws, linux, responsive design",
+        "Education": "Bachelors",
+        "JobRole": "DevOps Engineer"
+    },
+    {
+        "Name": "Joshua Mitchell",
+        "YearsExperience": 14,
+        "Skills": "data cleaning, excel, tableau, statistics, python, data visualization, reporting, power bi",
+        "Education": "Bachelors",
+        "JobRole": "Data Analyst"
+    },
+    {
+        "Name": "Michael Thomas",
+        "YearsExperience": 4,
+        "Skills": "microservices, system design, c++, algorithms, python, rest apis, agile",
+        "Education": "Associate",
+        "JobRole": "Software Engineer"
+    },
+    {
+        "Name": "Michelle Harris",
+        "YearsExperience": 13,
+        "Skills": "compliance, python, firewalls, vulnerability assessment, incident response, penetration testing, linux, siem",
+        "Education": "Bachelors",
+        "JobRole": "Cybersecurity Analyst"
+    },
+    {
+        "Name": "Mary Sanchez",
+        "YearsExperience": 5,
+        "Skills": "user research, sketch, figma, css, adobe xd, usability testing",
+        "Education": "PhD",
+        "JobRole": "UX Designer"
+    },
+    {
+        "Name": "Jennifer Clark",
+        "YearsExperience": 11,
+        "Skills": "rest apis, microservices, git, c++, python, agile, system design, algorithms, data structures, java",
+        "Education": "Masters",
+        "JobRole": "Software Engineer"
+    },
+    {
+        "Name": "Susan Wright",
+        "YearsExperience": 13,
+        "Skills": "data structures, agile, git, algorithms, rest apis, microservices, java",
+        "Education": "PhD",
+        "JobRole": "Software Engineer"
+    },
+    {
+        "Name": "John Thomas",
+        "YearsExperience": 8,
+        "Skills": "css, responsive design, rest apis, typescript, node.js, webpack, react, git, javascript, html, r",
+        "Education": "Bachelors",
+        "JobRole": "Web Developer"
+    },
+    {
+        "Name": "Anthony Flores",
+        "YearsExperience": 12,
+        "Skills": "react, javascript, git, webpack, html, css, responsive design",
+        "Education": "Bachelors",
+        "JobRole": "Web Developer"
+    },
+    {
+        "Name": "Mary Nguyen",
+        "YearsExperience": 9,
+        "Skills": "rest apis, algorithms, java, system design, git, agile, python, numpy",
+        "Education": "Bachelors",
+        "JobRole": "Software Engineer"
+    },
+    {
+        "Name": "Melissa Lopez",
+        "YearsExperience": 1,
+        "Skills": "jira, data analysis, excel, communication, power bi, stakeholder management, requirements gathering, uml, javascript",
+        "Education": "Masters",
+        "JobRole": "Business Analyst"
+    },
+    {
+        "Name": "William Allen",
+        "YearsExperience": 5,
+        "Skills": "prototyping, css, sketch, adobe xd, usability testing, wireframing, user research",
+        "Education": "PhD",
+        "JobRole": "UX Designer"
+    },
+    {
+        "Name": "Nancy Lewis",
+        "YearsExperience": 13,
+        "Skills": "java, agile, test automation, cypress, performance testing, python",
+        "Education": "PhD",
+        "JobRole": "QA Engineer"
+    },
+    {
+        "Name": "Paul Carter",
+        "YearsExperience": 5,
+        "Skills": "r, deep learning, pytorch, sql, pandas, python, tensorflow, numpy",
+        "Education": "Bachelors",
+        "JobRole": "Data Scientist"
+    },
+    {
+        "Name": "Michael Rodriguez",
+        "YearsExperience": 2,
+        "Skills": "linux, compliance, incident response, vulnerability assessment, python, firewalls, network security, selenium",
+        "Education": "Bachelors",
+        "JobRole": "Cybersecurity Analyst"
+    },
+    {
+        "Name": "Robert Thomas",
+        "YearsExperience": 11,
+        "Skills": "mlops, tensorflow, aws sagemaker, python, kubernetes, feature engineering, docker, model deployment",
+        "Education": "PhD",
+        "JobRole": "ML Engineer"
+    },
+    {
+        "Name": "Linda Torres",
+        "YearsExperience": 4,
+        "Skills": "vulnerability assessment, network security, python, firewalls, penetration testing, linux, incident response",
+        "Education": "PhD",
+        "JobRole": "Cybersecurity Analyst"
+    },
+    {
+        "Name": "Donald Lee",
+        "YearsExperience": 3,
+        "Skills": "python, incident response, vulnerability assessment, linux, firewalls, penetration testing, compliance, siem, network security",
+        "Education": "Masters",
+        "JobRole": "Cybersecurity Analyst"
+    },
+    {
+        "Name": "Daniel Smith",
+        "YearsExperience": 3,
+        "Skills": "responsive design, typescript, react, webpack, css, javascript, html",
+        "Education": "Masters",
+        "JobRole": "Frontend Developer"
+    },
+    {
+        "Name": "Robert Thompson",
+        "YearsExperience": 4,
+        "Skills": "agile, java, selenium, performance testing, jira, cypress",
+        "Education": "Masters",
+        "JobRole": "QA Engineer"
+    },
+    {
+        "Name": "Rebecca Jackson",
+        "YearsExperience": 12,
+        "Skills": "python, microservices, rabbitmq, redis, rest apis, sql, node.js, java",
+        "Education": "PhD",
+        "JobRole": "Backend Developer"
+    },
+    {
+        "Name": "Edward Flores",
+        "YearsExperience": 1,
+        "Skills": "html, webpack, typescript, angular, responsive design, sass",
+        "Education": "Masters",
+        "JobRole": "Frontend Developer"
+    },
+    {
+        "Name": "James Taylor",
+        "YearsExperience": 11,
+        "Skills": "user research, figma, prototyping, html, css, adobe xd, usability testing, sketch",
+        "Education": "Associate",
+        "JobRole": "UX Designer"
+    },
+    {
+        "Name": "Linda Gonzalez",
+        "YearsExperience": 13,
+        "Skills": "test automation, performance testing, selenium, java, jira, agile, python",
+        "Education": "Bachelors",
+        "JobRole": "QA Engineer"
+    },
+    {
+        "Name": "Anthony Adams",
+        "YearsExperience": 2,
+        "Skills": "rabbitmq, rest apis, postgresql, java, mongodb, node.js, python, sql, microservices",
+        "Education": "Bachelors",
+        "JobRole": "Backend Developer"
+    },
+    {
+        "Name": "Mary Taylor",
+        "YearsExperience": 9,
+        "Skills": "microservices, networking, docker, azure, serverless, gcp, kubernetes, terraform, aws, security",
+        "Education": "Associate",
+        "JobRole": "Cloud Architect"
+    },
+    {
+        "Name": "Robert Lewis",
+        "YearsExperience": 3,
+        "Skills": "python, agile, performance testing, java, selenium, api testing, cypress, jira, test automation",
+        "Education": "Bachelors",
+        "JobRole": "QA Engineer"
+    },
+    {
+        "Name": "Lisa Nelson",
+        "YearsExperience": 2,
+        "Skills": "css, typescript, javascript, vue, html, sass, responsive design, webpack, angular, usability testing",
+        "Education": "Masters",
+        "JobRole": "Frontend Developer"
+    },
+    {
+        "Name": "Steven Sanchez",
+        "YearsExperience": 9,
+        "Skills": "agile, ms project, scrum, budgeting, jira, stakeholder management",
+        "Education": "Masters",
+        "JobRole": "Project Manager"
+    },
+    {
+        "Name": "Matthew Flores",
+        "YearsExperience": 11,
+        "Skills": "model deployment, pytorch, tensorflow, mlops, aws sagemaker, kubernetes, feature engineering",
+        "Education": "Bachelors",
+        "JobRole": "ML Engineer"
+    },
+    {
+        "Name": "Joshua Baker",
+        "YearsExperience": 13,
+        "Skills": "selenium, java, cypress, python, performance testing, jira, agile, api testing, test automation",
+        "Education": "Associate",
+        "JobRole": "QA Engineer"
+    },
+    {
+        "Name": "Donald Lewis",
+        "YearsExperience": 10,
+        "Skills": "swift, kotlin, java, ios, firebase, ui/ux",
+        "Education": "Bachelors",
+        "JobRole": "Mobile Developer"
+    },
+    {
+        "Name": "Barbara Walker",
+        "YearsExperience": 9,
+        "Skills": "power bi, python, reporting, tableau, statistics, sql, excel, data cleaning, data visualization",
+        "Education": "Bachelors",
+        "JobRole": "Data Analyst"
+    },
+    {
+        "Name": "Edward Johnson",
+        "YearsExperience": 5,
+        "Skills": "css, usability testing, wireframing, user research, sketch, html, prototyping, adobe xd, figma",
+        "Education": "Associate",
+        "JobRole": "UX Designer"
+    },
+    {
+        "Name": "Donna Nelson",
+        "YearsExperience": 3,
+        "Skills": "java, firebase, react native, ios, rest apis, kotlin, ui/ux, flutter",
+        "Education": "Bachelors",
+        "JobRole": "Mobile Developer"
+    },
+    {
+        "Name": "Timothy Johnson",
+        "YearsExperience": 6,
+        "Skills": "excel, uml, jira, requirements gathering, sql, data analysis, communication, power bi",
+        "Education": "Bachelors",
+        "JobRole": "Business Analyst"
+    },
+    {
+        "Name": "Sarah Smith",
+        "YearsExperience": 10,
+        "Skills": "model deployment, docker, feature engineering, tensorflow, aws sagemaker, pytorch",
+        "Education": "Masters",
+        "JobRole": "ML Engineer"
+    },
+    {
+        "Name": "Joshua Smith",
+        "YearsExperience": 5,
+        "Skills": "node.js, redis, postgresql, rest apis, python, java, microservices",
+        "Education": "Bachelors",
+        "JobRole": "Backend Developer"
+    },
+    {
+        "Name": "Brian Rivera",
+        "YearsExperience": 8,
+        "Skills": "power bi, stakeholder management, jira, communication, requirements gathering, uml, sql, excel",
+        "Education": "Masters",
+        "JobRole": "Business Analyst"
+    },
+    {
+        "Name": "Barbara Young",
+        "YearsExperience": 9,
+        "Skills": "cypress, python, java, api testing, test automation, performance testing, agile, jira, selenium",
+        "Education": "Masters",
+        "JobRole": "QA Engineer"
+    },
+    {
+        "Name": "Joshua Hill",
+        "YearsExperience": 13,
+        "Skills": "linux, network security, siem, firewalls, python, compliance, vulnerability assessment, incident response",
+        "Education": "Masters",
+        "JobRole": "Cybersecurity Analyst"
+    },
+    {
+        "Name": "Robert Allen",
+        "YearsExperience": 4,
+        "Skills": "system design, algorithms, c++, git, data structures, agile, microservices, java",
+        "Education": "Bachelors",
+        "JobRole": "Software Engineer"
+    },
+    {
+        "Name": "Jessica Rivera",
+        "YearsExperience": 3,
+        "Skills": "aws sagemaker, python, docker, mlops, model deployment, tensorflow, feature engineering, kubernetes",
+        "Education": "Bachelors",
+        "JobRole": "ML Engineer"
+    },
+    {
+        "Name": "Steven Robinson",
+        "YearsExperience": 6,
+        "Skills": "microservices, security, serverless, aws, networking, docker",
+        "Education": "PhD",
+        "JobRole": "Cloud Architect"
+    },
+    {
+        "Name": "Edward Robinson",
+        "YearsExperience": 10,
+        "Skills": "linux, ci/cd, docker, terraform, aws, kubernetes, bash, ansible, jenkins, monitoring",
+        "Education": "Bachelors",
+        "JobRole": "DevOps Engineer"
+    },
+    {
+        "Name": "Joshua Johnson",
+        "YearsExperience": 9,
+        "Skills": "scikit-learn, data visualization, numpy, pytorch, machine learning, pandas, deep learning",
+        "Education": "Bachelors",
+        "JobRole": "Data Scientist"
+    },
+    {
+        "Name": "Thomas White",
+        "YearsExperience": 3,
+        "Skills": "react, responsive design, sass, javascript, angular, typescript, vue, html, css",
+        "Education": "Bachelors",
+        "JobRole": "Frontend Developer"
+    },
+    {
+        "Name": "Deborah Campbell",
+        "YearsExperience": 14,
+        "Skills": "requirements gathering, uml, power bi, excel, sql, data analysis",
+        "Education": "Masters",
+        "JobRole": "Business Analyst"
+    },
+    {
+        "Name": "Thomas Campbell",
+        "YearsExperience": 6,
+        "Skills": "budgeting, agile, stakeholder management, leadership, risk management, scrum, communication, jira, ms project",
+        "Education": "Bachelors",
+        "JobRole": "Project Manager"
+    },
+    {
+        "Name": "Matthew Lopez",
+        "YearsExperience": 13,
+        "Skills": "security, terraform, serverless, gcp, kubernetes, azure, microservices, aws, docker, networking",
+        "Education": "Masters",
+        "JobRole": "Cloud Architect"
+    },
+    {
+        "Name": "David Martin",
+        "YearsExperience": 2,
+        "Skills": "docker, jenkins, linux, terraform, ci/cd, kubernetes, bash, aws, ansible, monitoring",
+        "Education": "Masters",
+        "JobRole": "DevOps Engineer"
+    },
+    {
+        "Name": "Andrew Cruz",
+        "YearsExperience": 12,
+        "Skills": "machine learning, data visualization, pandas, pytorch, statistics, r, sql, numpy",
+        "Education": "Bachelors",
+        "JobRole": "Data Scientist"
+    },
+    {
+        "Name": "Michael Thompson",
+        "YearsExperience": 14,
+        "Skills": "css, react, html, webpack, sass, angular, javascript, vue, responsive design, typescript",
+        "Education": "Associate",
+        "JobRole": "Frontend Developer"
+    },
+    {
+        "Name": "Richard Roberts",
+        "YearsExperience": 6,
+        "Skills": "vue, angular, react, webpack, responsive design, typescript, html, css, system design",
+        "Education": "Masters",
+        "JobRole": "Frontend Developer"
+    },
+    {
+        "Name": "Daniel Roberts",
+        "YearsExperience": 13,
+        "Skills": "jira, sql, requirements gathering, stakeholder management, power bi, uml, excel",
+        "Education": "Bachelors",
+        "JobRole": "Business Analyst"
+    },
+    {
+        "Name": "Sandra Lopez",
+        "YearsExperience": 1,
+        "Skills": "linux, ci/cd, terraform, ansible, aws, monitoring, bash, kubernetes",
+        "Education": "Bachelors",
+        "JobRole": "DevOps Engineer"
+    },
+    {
+        "Name": "Anthony Robinson",
+        "YearsExperience": 6,
+        "Skills": "css, html, responsive design, typescript, sass, webpack, javascript",
+        "Education": "Masters",
+        "JobRole": "Frontend Developer"
+    },
+    {
+        "Name": "John Brown",
+        "YearsExperience": 9,
+        "Skills": "python, data cleaning, sql, data visualization, power bi, reporting, excel, tableau",
+        "Education": "Masters",
+        "JobRole": "Data Analyst"
+    },
+    {
+        "Name": "Timothy Rodriguez",
+        "YearsExperience": 11,
+        "Skills": "swift, firebase, rest apis, kotlin, react native, ui/ux, ios, android, flutter, java, terraform",
+        "Education": "Masters",
+        "JobRole": "Mobile Developer"
+    },
+    {
+        "Name": "Jason Miller",
+        "YearsExperience": 4,
+        "Skills": "responsive design, typescript, react, angular, vue, css, webpack, sass, javascript",
+        "Education": "Bachelors",
+        "JobRole": "Frontend Developer"
+    },
+    {
+        "Name": "Joseph Thompson",
+        "YearsExperience": 9,
+        "Skills": "scrum, risk management, ms project, budgeting, leadership, jira, agile, communication",
+        "Education": "PhD",
+        "JobRole": "Project Manager"
+    },
+    {
+        "Name": "Thomas Baker",
+        "YearsExperience": 13,
+        "Skills": "python, java, postgresql, rest apis, sql, redis, node.js",
+        "Education": "PhD",
+        "JobRole": "Backend Developer"
+    },
+    {
+        "Name": "Laura Roberts",
+        "YearsExperience": 15,
+        "Skills": "rest apis, react, javascript, webpack, typescript, node.js",
+        "Education": "Bachelors",
+        "JobRole": "Web Developer"
+    },
+    {
+        "Name": "Robert Rodriguez",
+        "YearsExperience": 6,
+        "Skills": "leadership, ms project, budgeting, risk management, jira, scrum",
+        "Education": "Bachelors",
+        "JobRole": "Project Manager"
+    },
+    {
+        "Name": "Anthony Perez",
+        "YearsExperience": 9,
+        "Skills": "linux, docker, terraform, bash, ansible, ci/cd, monitoring, aws, kubernetes",
+        "Education": "Associate",
+        "JobRole": "DevOps Engineer"
+    },
+    {
+        "Name": "Margaret Cruz",
+        "YearsExperience": 7,
+        "Skills": "api testing, agile, python, test automation, performance testing, java, jira, cypress, selenium",
+        "Education": "PhD",
+        "JobRole": "QA Engineer"
+    },
+    {
+        "Name": "Deborah Miller",
+        "YearsExperience": 13,
+        "Skills": "tableau, power bi, statistics, sql, excel, data cleaning, data visualization",
+        "Education": "Masters",
+        "JobRole": "Data Analyst"
+    },
+    {
+        "Name": "David Mitchell",
+        "YearsExperience": 14,
+        "Skills": "ansible, jenkins, terraform, linux, ci/cd, aws, bash, monitoring, docker",
+        "Education": "PhD",
+        "JobRole": "DevOps Engineer"
+    },
+    {
+        "Name": "Lisa Wilson",
+        "YearsExperience": 11,
+        "Skills": "microservices, system design, data structures, agile, java, git, algorithms, python, rest apis",
+        "Education": "Bachelors",
+        "JobRole": "Software Engineer"
+    },
+    {
+        "Name": "Deborah Parker",
+        "YearsExperience": 15,
+        "Skills": "sql, communication, requirements gathering, jira, stakeholder management, power bi, excel, uml",
+        "Education": "Bachelors",
+        "JobRole": "Business Analyst"
+    },
+    {
+        "Name": "Daniel Moore",
+        "YearsExperience": 13,
+        "Skills": "azure, kubernetes, networking, terraform, docker, microservices, serverless, security, aws",
+        "Education": "Bachelors",
+        "JobRole": "Cloud Architect"
+    },
+    {
+        "Name": "Sarah Hall",
+        "YearsExperience": 15,
+        "Skills": "statistics, data visualization, sql, numpy, machine learning, r",
+        "Education": "Masters",
+        "JobRole": "Data Scientist"
+    },
+    {
+        "Name": "Michael Ramirez",
+        "YearsExperience": 4,
+        "Skills": "python, linux, compliance, siem, network security, vulnerability assessment",
+        "Education": "Bachelors",
+        "JobRole": "Cybersecurity Analyst"
+    },
+    {
+        "Name": "Steven Miller",
+        "YearsExperience": 14,
+        "Skills": "data visualization, numpy, statistics, machine learning, sql, pandas, r, deep learning",
+        "Education": "Associate",
+        "JobRole": "Data Scientist"
+    },
+    {
+        "Name": "Donna Perez",
+        "YearsExperience": 14,
+        "Skills": "model deployment, tensorflow, docker, mlops, python, aws sagemaker",
+        "Education": "Bachelors",
+        "JobRole": "ML Engineer"
+    },
+    {
+        "Name": "Richard Miller",
+        "YearsExperience": 2,
+        "Skills": "git, agile, microservices, algorithms, rest apis, java, data structures, system design, python",
+        "Education": "Bachelors",
+        "JobRole": "Software Engineer"
+    },
+    {
+        "Name": "Sandra Jackson",
+        "YearsExperience": 11,
+        "Skills": "tensorflow, model deployment, pytorch, docker, feature engineering, mlops, kubernetes",
+        "Education": "Bachelors",
+        "JobRole": "ML Engineer"
+    },
+    {
+        "Name": "Jessica Rivera",
+        "YearsExperience": 8,
+        "Skills": "android, ios, react native, ui/ux, firebase, rest apis, flutter, swift, java",
+        "Education": "PhD",
+        "JobRole": "Mobile Developer"
+    },
+    {
+        "Name": "George Carter",
+        "YearsExperience": 2,
+        "Skills": "usability testing, figma, sketch, css, html, wireframing",
+        "Education": "Bachelors",
+        "JobRole": "UX Designer"
+    },
+    {
+        "Name": "Ronald Moore",
+        "YearsExperience": 10,
+        "Skills": "rest apis, android, swift, react native, flutter, ios, jira",
+        "Education": "Bachelors",
+        "JobRole": "Mobile Developer"
+    },
+    {
+        "Name": "Christopher Carter",
+        "YearsExperience": 15,
+        "Skills": "java, system design, python, rest apis, data structures, microservices",
+        "Education": "Masters",
+        "JobRole": "Software Engineer"
+    },
+    {
+        "Name": "Rebecca Gomez",
+        "YearsExperience": 8,
+        "Skills": "rest apis, ui/ux, android, firebase, react native, flutter, java",
+        "Education": "Bachelors",
+        "JobRole": "Mobile Developer"
+    },
+    {
+        "Name": "Lisa Torres",
+        "YearsExperience": 14,
+        "Skills": "serverless, aws, terraform, azure, kubernetes, docker",
+        "Education": "PhD",
+        "JobRole": "Cloud Architect"
+    },
+    {
+        "Name": "Matthew Hernandez",
+        "YearsExperience": 3,
+        "Skills": "incident response, vulnerability assessment, firewalls, penetration testing, network security, python, linux, siem",
+        "Education": "Bachelors",
+        "JobRole": "Cybersecurity Analyst"
+    },
+    {
+        "Name": "Joshua Evans",
+        "YearsExperience": 3,
+        "Skills": "agile, python, selenium, java, cypress, jira, performance testing, test automation, stakeholder management",
+        "Education": "Masters",
+        "JobRole": "QA Engineer"
+    },
+    {
+        "Name": "Anthony Evans",
+        "YearsExperience": 8,
+        "Skills": "linux, ci/cd, ansible, monitoring, kubernetes, terraform, security",
+        "Education": "Associate",
+        "JobRole": "DevOps Engineer"
+    },
+    {
+        "Name": "Kenneth Adams",
+        "YearsExperience": 6,
+        "Skills": "rest apis, swift, firebase, react native, ui/ux, java",
+        "Education": "Masters",
+        "JobRole": "Mobile Developer"
+    },
+    {
+        "Name": "Paul Davis",
+        "YearsExperience": 8,
+        "Skills": "postgresql, rest apis, mongodb, java, microservices, python, sql, redis",
+        "Education": "Associate",
+        "JobRole": "Backend Developer"
+    },
+    {
+        "Name": "Ronald Brown",
+        "YearsExperience": 5,
+        "Skills": "kubernetes, feature engineering, tensorflow, model deployment, docker, mlops, pytorch, python, microservices",
+        "Education": "Bachelors",
+        "JobRole": "ML Engineer"
+    },
+    {
+        "Name": "Ashley Davis",
+        "YearsExperience": 2,
+        "Skills": "redis, node.js, rest apis, sql, rabbitmq, postgresql, microservices",
+        "Education": "Bachelors",
+        "JobRole": "Backend Developer"
+    },
+    {
+        "Name": "Karen Allen",
+        "YearsExperience": 5,
+        "Skills": "typescript, rest apis, node.js, responsive design, css, webpack, react, javascript, git",
+        "Education": "Associate",
+        "JobRole": "Web Developer"
+    },
+    {
+        "Name": "Thomas White",
+        "YearsExperience": 9,
+        "Skills": "security, azure, microservices, networking, gcp, serverless, kubernetes, docker, terraform",
+        "Education": "Bachelors",
+        "JobRole": "Cloud Architect"
+    },
+    {
+        "Name": "Nancy Gomez",
+        "YearsExperience": 14,
+        "Skills": "typescript, react, git, webpack, html, javascript",
+        "Education": "Bachelors",
+        "JobRole": "Web Developer"
+    },
+    {
+        "Name": "Donna Mitchell",
+        "YearsExperience": 9,
+        "Skills": "git, java, microservices, data structures, algorithms, agile",
+        "Education": "Bachelors",
+        "JobRole": "Software Engineer"
+    },
+    {
+        "Name": "Susan Martin",
+        "YearsExperience": 4,
+        "Skills": "html, responsive design, css, javascript, typescript, angular, sass, performance testing",
+        "Education": "Bachelors",
+        "JobRole": "Frontend Developer"
+    },
+    {
+        "Name": "Brian Thomas",
+        "YearsExperience": 10,
+        "Skills": "mlops, feature engineering, python, pytorch, aws sagemaker, docker, tensorflow, model deployment, kubernetes",
+        "Education": "Masters",
+        "JobRole": "ML Engineer"
+    },
+    {
+        "Name": "Kevin Miller",
+        "YearsExperience": 15,
+        "Skills": "data structures, python, microservices, git, rest apis, system design, c++",
+        "Education": "Masters",
+        "JobRole": "Software Engineer"
+    },
+    {
+        "Name": "Steven Martinez",
+        "YearsExperience": 14,
+        "Skills": "swift, flutter, ui/ux, react native, kotlin, android, rest apis, ios, firebase",
+        "Education": "Associate",
+        "JobRole": "Mobile Developer"
+    },
+    {
+        "Name": "Kenneth Hall",
+        "YearsExperience": 9,
+        "Skills": "data visualization, tensorflow, python, machine learning, statistics, pytorch, sql",
+        "Education": "PhD",
+        "JobRole": "Data Scientist"
+    },
+    {
+        "Name": "Christopher Flores",
+        "YearsExperience": 4,
+        "Skills": "microservices, postgresql, rest apis, java, python, rabbitmq",
+        "Education": "Masters",
+        "JobRole": "Backend Developer"
+    },
+    {
+        "Name": "Donald Gomez",
+        "YearsExperience": 15,
+        "Skills": "css, node.js, typescript, html, webpack, javascript, responsive design",
+        "Education": "Masters",
+        "JobRole": "Web Developer"
+    },
+    {
+        "Name": "Kevin Garcia",
+        "YearsExperience": 9,
+        "Skills": "python, selenium, test automation, api testing, performance testing, agile, cypress, java",
+        "Education": "Masters",
+        "JobRole": "QA Engineer"
+    },
+    {
+        "Name": "Matthew Garcia",
+        "YearsExperience": 11,
+        "Skills": "prototyping, sketch, html, wireframing, user research, usability testing, adobe xd",
+        "Education": "Bachelors",
+        "JobRole": "UX Designer"
+    },
+    {
+        "Name": "Jessica Wilson",
+        "YearsExperience": 10,
+        "Skills": "agile, ms project, jira, stakeholder management, risk management, budgeting, scrum, leadership",
+        "Education": "Bachelors",
+        "JobRole": "Project Manager"
+    },
+    {
+        "Name": "Ashley Garcia",
+        "YearsExperience": 15,
+        "Skills": "figma, html, sketch, wireframing, user research, prototyping, adobe xd, css, usability testing",
+        "Education": "Masters",
+        "JobRole": "UX Designer"
+    }
+]

@@ -6,8 +6,10 @@ from frontend.styles.theme import apply_custom_theme
 from frontend.components.score_card import render_score_gauge
 from frontend.components.skill_gap import render_radar_breakdown, render_skills_bar_chart
 from frontend.components.explanation import render_xai_explanation
+from frontend.utils import init_session_state, get_api_base_url, get_api_headers
 
 apply_custom_theme()
+init_session_state()
 
 st.markdown('<h1 class="gradient-text">📊 Resume Screening Dashboard</h1>', unsafe_allow_html=True)
 st.markdown("Screen candidate resumes against target job specifications using NLP semantic alignment, fuzzy skill mapping, and machine learning models.")
@@ -51,17 +53,18 @@ JD_PRESETS = {
 # Input Form
 with st.container():
     col1, col2 = st.columns([1, 1])
-    
+
     with col1:
         st.markdown("### 📄 Step 1: Candidate Resume")
         cand_name = st.text_input("Candidate Name", value="Jane Doe")
-        
+
         upload_mode = st.radio("Resume Input Mode", ["File Upload", "Paste Raw Text"])
-        
+
         file_bytes = None
         file_name = None
         raw_resume_text = ""
-        
+        uploaded_file = None
+
         if upload_mode == "File Upload":
             uploaded_file = st.file_uploader("Upload Resume (PDF, DOCX, TXT)", type=["pdf", "docx", "txt"])
             if uploaded_file:
@@ -74,23 +77,28 @@ with st.container():
         st.markdown("### 💼 Step 2: Job Description")
         preset_choice = st.selectbox("Load Job Preset", list(JD_PRESETS.keys()))
         preset_data = JD_PRESETS[preset_choice]
-        
+
         jd_title = st.text_input("Job Title", value=preset_data["title"])
         jd_desc = st.text_area("Job Description Details", value=preset_data["description"], height=100)
-        
+
         req_skills_input = st.text_input("Required Skills (comma-separated)", value=preset_data["required_skills"])
         pref_skills_input = st.text_input("Preferred Skills (comma-separated)", value=preset_data["preferred_skills"])
-        
+
+        edu_options = ["None", "High School", "Associate", "Bachelors", "Masters", "PhD"]
+        preset_edu = preset_data.get("education_required", "Bachelors")
+        edu_index = edu_options.index(preset_edu) if preset_edu in edu_options else 3
+
         exp_col, edu_col = st.columns(2)
         with exp_col:
             min_exp = st.number_input("Min Experience (years)", min_value=0.0, max_value=20.0, value=float(preset_data["min_experience"]), step=1.0)
         with edu_col:
-            edu_req = st.selectbox("Required Education", ["None", "High School", "Associate", "Bachelors", "Masters", "PhD"], index=["None", "High School", "Associate", "Bachelors", "Masters", "PhD"].index(preset_data["education_required"]))
+            edu_req = st.selectbox("Required Education", edu_options, index=edu_index)
 
 # Trigger Screening
 if st.button("🚀 Analyze Compatibility"):
-    api_url = st.session_state.api_url
-    
+    api_url = get_api_base_url()
+    headers = get_api_headers()
+
     # Validation checks
     if upload_mode == "File Upload" and not uploaded_file:
         st.error("Please upload a resume file.")
@@ -106,7 +114,7 @@ if st.button("🚀 Analyze Compatibility"):
                 # Prepare payload
                 req_skills = [s.strip() for s in req_skills_input.split(",") if s.strip()]
                 pref_skills = [s.strip() for s in pref_skills_input.split(",") if s.strip()]
-                
+
                 # File upload path
                 if upload_mode == "File Upload":
                     files = {
@@ -122,8 +130,7 @@ if st.button("🚀 Analyze Compatibility"):
                         "education_required": edu_req,
                         "save_to_db": True
                     }
-                    resp = requests.post(f"{api_url}/api/screening/file", files=files, data=data)
-                
+                    resp = requests.post(f"{api_url}/api/screening/file", files=files, data=data, headers=headers, timeout=60)
                 # Raw text path
                 else:
                     payload = {
@@ -137,16 +144,20 @@ if st.button("🚀 Analyze Compatibility"):
                         "education_required": edu_req,
                         "save_to_db": True
                     }
-                    resp = requests.post(f"{api_url}/api/screening/", json=payload)
+                    resp = requests.post(f"{api_url}/api/screening/", json=payload, headers=headers, timeout=60)
 
                 if resp.status_code == 200:
                     result = resp.json()
                     st.session_state.screening_result = result
-                    st.session_state.last_resume_name = cand_name
+                    st.session_state.last_resume_name = result.get("candidate_name") or cand_name
                     st.session_state.last_jd_title = jd_title
                     st.success("Screening completed successfully!")
                 else:
-                    st.error(f"Error during screening: {resp.text}")
+                    try:
+                        err_detail = resp.json().get("detail", resp.text)
+                    except Exception:
+                        err_detail = resp.text
+                    st.error(f"Error during screening: {err_detail}")
             except Exception as e:
                 st.error(f"Failed to connect to backend: {str(e)}")
 
@@ -160,21 +171,45 @@ if st.session_state.screening_result:
     suggestions = result.get("suggestions", [])
     summary = result.get("summary", "")
 
+    cand_email = result.get("candidate_email")
+    cand_phone = result.get("candidate_phone")
+    extracted_exp = result.get("extracted_experience")
+    extracted_edu = result.get("extracted_education")
+
     st.markdown("---")
     st.markdown(f"## 📋 Screening Results: **{st.session_state.last_resume_name}** ↔ **{st.session_state.last_jd_title}**")
-    
+
     col1, col2 = st.columns([1, 1])
-    
+
     with col1:
         # Gauge Metric
         render_score_gauge(scores.get("overall", 0.0), "Overall Compatibility")
-        
-        # Details metadata
+
+        # Contact & Extraction Metadata
+        meta_items = []
+        if cand_email:
+            meta_items.append(f"📧 <b>Email</b>: {cand_email}")
+        if cand_phone:
+            meta_items.append(f"📞 <b>Phone</b>: {cand_phone}")
+        if extracted_edu:
+            meta_items.append(f"🎓 <b>Education</b>: {extracted_edu}")
+        else:
+            meta_items.append("🎓 <b>Education</b>: Not specified in resume")
+
+        if extracted_exp is not None:
+            meta_items.append(f"💼 <b>Experience</b>: {extracted_exp:.1f} Years")
+        else:
+            meta_items.append("💼 <b>Experience</b>: Not specified in resume")
+
+        meta_html = "<br>".join(meta_items)
+
         st.markdown(
             f"""
             <div class="glass-card">
                 <h4>🎯 Profile Verdict</h4>
-                <p><b>Predicted Professional Role</b>: <span style="color:#818cf8; font-weight:600;">{predicted_role}</span></p>
+                <p><b>Predicted Role</b>: <span style="color:#818cf8; font-weight:600;">{predicted_role}</span></p>
+                <p style="font-size:0.9rem; color:#94a3b8; line-height:1.6;">{meta_html}</p>
+                <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 10px 0;">
                 <p style="font-size:0.95rem; line-height:1.5; color:#cbd5e1;">{summary}</p>
             </div>
             """,
@@ -189,28 +224,28 @@ if st.session_state.screening_result:
     # Skills Analysis Cards
     st.markdown("### 🛡️ Skills Analysis")
     sc1, sc2 = st.columns([2, 1])
-    
+
     with sc1:
         matched = skill_analysis.get("matched", [])
         missing = skill_analysis.get("missing", [])
         bonus = skill_analysis.get("bonus", [])
-        
+
         st.markdown("**Matched Skills**")
         if matched:
             st.markdown(" ".join([f'<span class="badge badge-matched">{s}</span>' for s in matched]), unsafe_allow_html=True)
         else:
             st.markdown("None detected.")
-            
+
         st.markdown("<br>**Missing Required Skills**", unsafe_allow_html=True)
         if missing:
             st.markdown(" ".join([f'<span class="badge badge-missing">{s}</span>' for s in missing]), unsafe_allow_html=True)
         else:
-            st.markdown("None!")
-            
+            st.markdown("None! All required skills matched.")
+
         if bonus:
-            st.markdown("<br>**Extra/Bonus Skills**", unsafe_allow_html=True)
+            st.markdown("<br>**Extra / Bonus Skills**", unsafe_allow_html=True)
             st.markdown(" ".join([f'<span class="badge badge-bonus">{s}</span>' for s in bonus]), unsafe_allow_html=True)
-            
+
     with sc2:
         render_skills_bar_chart(matched, missing)
 
@@ -221,6 +256,6 @@ if st.session_state.screening_result:
     st.markdown("### 💡 Recommended Improvement Roadmap")
     for sug in suggestions:
         st.markdown(f"• {sug}")
-        
+
     st.markdown("---")
-    st.markdown("💬 **Tip**: Go to the **Chatbot** in the sidebar to ask questions about how this candidate can prepare or bridge these specific skill gaps.")
+    st.markdown("💬 **Next Step**: Go to the **Chatbot** in the sidebar to ask questions about preparing this candidate or bridging skill gaps.")
